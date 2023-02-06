@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>风险分布</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/weui.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/weuix.css" />
+
+    <!-- vue -->
+    <script src="../../../bi/js/vue.js"></script>
+    <!--全局配置-->
+    <script src="../../../config.js"></script>
+	</head>
+	<body ontouchstart >
+		<div id="app">
+			<div class="page-bg">
+				<div class="tab-box">
+					<div class="weui-tab" id="t4">
+						<div class="weui-tab-nav">
+							<a href="javascript:" @click="switchoverTab('1')" :class="tab=='1'?' bg-green':''" class="weui-navbar__item weui-nav-green">检查记录</a>
+							<a href="javascript:" @click="switchoverTab('2')" :class="tab=='2'?' bg-green':''" class="weui-navbar__item weui-nav-green">风险分布</a>
+						</div>
+					</div>
+				</div>
+				<div class="weui-search-bar" v-show="tab=='1'">
+					<input type="search" v-model="KEYWORDS" class="search-input" id='search' placeholder='请输入关键字...' />
+					<button class="weui-btn weui-btn_primary" v-on:click="getData">
+						<i class="icon icon-4" style="margin-right: 5px;font-size: 12px;"></i>搜索</button>
+				</div>
+			</div>
+			<div class="weui-news"  v-show="tab=='1'">
+				<ul class="weui-news-list">
+					<template v-for="(data,index) in list">
+						<li class="weui-news-item" v-on:click="goToDetail(data.CHECKRECORD_ID)">
+							<div class="weui-news-inner">
+								<div class="weui-news-inners">
+									<div class="weui-news-text">
+										<div class="weui-news-title">检查清单：{{data.LISTMANAGERNAME}}</div>
+									</div>
+									<div class="wui-news-info">
+										<div class="wui-subinfo">检查时间：{{data.CHECK_TIME}}</div>
+										<div class="wui-subinfo">检查人：{{data.USERNAME}}</div>
+									</div>
+								</div>
+								<div class="weui-cell__ft"></div>
+							</div>
+						</li>
+					</template>
+<!--					<li class="weui-news-item">-->
+<!--						<div class="weui-news-inner">-->
+<!--							<div class="weui-news-inners">-->
+<!--								<div class="weui-news-text">-->
+<!--									<div class="weui-news-title">事故类型：用以帮助开发</div>-->
+<!--									<div class="weui-tag bg-orange light">一般风险/C级</div>-->
+<!--								</div>-->
+<!--								<div class="wui-news-info">-->
+<!--									<div class="wui-subinfo">风险源：部位A</div>-->
+<!--									<div class="wui-subinfo">管控部门/责任人：</div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="weui-cell__ft"></div>-->
+<!--						</div>-->
+<!--					</li>-->
+				</ul>
+			</div>
+			<div class="dy-card" v-show="tab=='2'">
+				<div class="dy-card-title">
+					<span>{{pd.RISKUNITNAME}}</span>
+					<span>{{pd.PARTSNAME}}</span>
+				</div>
+				<div class="dy-card-content">
+					<div class="dy-card-content-item">
+						<div class="title">
+							<span class="l"></span>
+							<span>存在风险</span>
+						</div>
+						<div class="content">
+							<ul>
+								<li v-for="(item,index) in varList">{{index+1}}. {{item.RISK_DESCR}}</li>
+							</ul>
+						</div>
+					</div>
+					<div class="dy-card-content-item">
+						<div class="title">
+							<span class="l"></span>
+							<span>主要管控措施</span>
+						</div>
+						<div class="content">
+							<ul>
+								<li v-for="(item,index) in varList">{{index+1}}. {{item.MEASURES}}</li>
+							</ul>
+						</div>
+					</div>
+					<div class="dy-card-content-item">
+						<div class="title">
+							<span class="l"></span>
+							<span>管控部门</span>
+						</div>
+						<div class="name">
+							<span>{{pd.DEPTNAME}}</span>
+						</div>
+					</div>
+					<div class="dy-card-content-item">
+						<div class="title">
+							<span class="l"></span>
+							<span>事故类型</span>
+						</div>
+						<div class="name">
+							<span>{{ACCIDENTS_NAME}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="dy-card-foot">
+					<span v-if="LEVELID=='levelA'" class="weui-tag bg-red">重大风险/A级</span>
+					<span v-if="LEVELID=='levelB'" class="weui-tag bg-orange">较大风险/B级</span>
+					<span v-if="LEVELID=='levelC'" class="weui-tag bg-yellow">一般风险/C级</span>
+					<span v-if="LEVELID=='levelD'" class="weui-tag bg-blue">低风险/D级</span>
+				</div>
+			</div>
+		</div>
+    <script type="text/javascript" src="../../assets/js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="../../../bi/js/pre-loader.js"></script>
+    <script src="../../../bi/js/sweetalert.min.js"></script>
+		<script type="text/javascript">
+
+			var vm = new Vue({
+				el: '#app',
+
+				data:{
+					list:[],//返回数据
+					page:1,//分页参数--页数
+					rows:1000,//分页参数--每页数据条数
+					totalCount:0,//分页参数--初始化页数
+					isEnd:false,//防止多次刷新
+					totalPage:0,//分页参数--分页数量
+					KEYWORDS : "",
+					loading:false,	//加载状态
+					IDENTIFICATIONPARTS_ID:"",
+					tab:'1',//tab签
+
+					pd:[],
+					LEVELID:'',
+					ACCIDENTS_NAME:"",
+				},
+
+				methods: {
+					//初始执行
+					init() {
+						this.IDENTIFICATIONPARTS_ID =this.getUrlKey('id');
+						this.LEVELID=this.getUrlKey('LEVELID');
+						//复选框控制全选,全不选
+						$('#zcheckbox').click(function(){
+							if($(this).is(':checked')){
+								$("input[name='ids']").click();
+							}else{
+								$("input[name='ids']").attr("checked", false);
+							}
+						});
+						this.getList();
+						this.getData();
+					},
+					getList: function(){
+						var _this = this;
+						_this.loading = true;
+						$.ajax({
+							xhrFields: {
+								withCredentials: true
+							},
+							type: "POST",
+							url: config.httpurl +'app/checkrecord/recordByIde',
+							dataType: 'json',
+							data: {
+								IDENTIFICATIONPARTS_ID:_this.IDENTIFICATIONPARTS_ID,
+								tm:new Date().getTime(),
+								KEYWORDS : _this.KEYWORDS, //关键字模糊查询
+							},
+							success: function(data){
+								vm.loading = false;
+								if("success" == data.result){
+									vm.list = data.varList;
+								}
+							}
+						})
+					},
+					getData: function(){
+						var _this = this;
+						_this.loading = true;
+						$.ajax({
+							xhrFields: {
+								withCredentials: true
+							},
+							type: "POST",
+							url: config.httpurl +'/app/riskpoint/getForIdentification' ,
+							dataType: 'json',
+							data: {
+								CHECK_IDENTIFICATION_ID: _this.IDENTIFICATIONPARTS_ID,
+							},
+							success: function(data){
+								vm.loading = false;
+								if("success" == data.result){
+									vm.varList = data.varList;
+									//vm.pd = data.varList[0];
+									var nameArray=[];
+									for (var i = 0; i < vm.varList.length; i++) {
+										var ACCIDENTS_NAME=vm.varList[i].ACCIDENTS_NAME;
+										var names=ACCIDENTS_NAME.split(",");
+										for(var j = 0; j < names.length; j++) {
+											nameArray.distinctPush(names[j]);
+										}
+									}
+									vm.ACCIDENTS_NAME=nameArray.join(",");
+								}
+							}
+						})
+
+						var _this = this;
+						_this.loading = true;
+						$.ajax({
+							xhrFields: {
+								withCredentials: true
+							},
+							type: "POST",
+							url: config.httpurl +'/app/identificationparts/goEdit' ,
+							dataType: 'json',
+							data: {
+								IDENTIFICATIONPARTS_ID: _this.IDENTIFICATIONPARTS_ID,
+							},
+							success: function(data){
+								vm.loading = false;
+								if("success" == data.result){
+									vm.pd = data.pd;
+								}
+							}
+						})
+					},
+					goToDetail: function (e) {
+						window.location.href = './part-list.html?FID='+e+'&IDENTIFICATION_ID='+this.IDENTIFICATIONPARTS_ID;
+					},
+					//根据url参数名称获取参数值
+					getUrlKey: function(name) {
+						return decodeURIComponent(
+							(new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) || [,
+								""
+							])[1].replace(/\+/g, '%20')) || null;
+					},
+					switchoverTab: function (tabNum){
+						this.tab = tabNum;
+					}
+				},
+				mounted(){
+					this.init();
+				}
+			})
+
+			function back(e) {
+				window.history.go(-1);
+			}
+		</script>
+	</body>
+</html>
+<style type="text/css">
+	.search-input {
+		padding-left: 10px;
+	}
+	.wui-news-info{
+		padding-bottom: 0.4rem;
+	}
+	.wui-subinfo{
+		font-size: 0.6rem;
+		color: #999;
+	}
+	.weui-search-bar .weui-btn{
+		text-align: center;width:110px;display: flex; align-items: center;
+		font-size: 0.65rem;
+		padding: 0rem 0.6rem;
+		line-height:2.26;
+	}
+</style>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>风险分布-详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/weui.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/weuix.css" />
+
+    <!-- vue -->
+    <script src="../../../bi/js/vue.js"></script>
+    <!--全局配置-->
+    <script src="../../../config.js"></script>
+	</head>
+	<body style="background-color: #f1f1f1;">
+		<div id="app" class="dy-card" >
+			<div class="dy-card-title">
+				<span>{{pd.RISKUNITNAME}}</span>
+				<span>{{pd.PARTSNAME}}</span>
+			</div>
+			<div class="dy-card-content">
+				<div class="dy-card-content-item">
+					<div class="title">
+						<span class="l"></span>
+						<span>存在风险</span>
+					</div>
+					<div class="content">
+						<ul>
+							<li v-for="(item,index) in varList">{{index+1}}. {{item.RISK_DESCR}}</li>
+						</ul>
+					</div>
+				</div>
+				<div class="dy-card-content-item">
+					<div class="title">
+						<span class="l"></span>
+						<span>主要管控措施</span>
+					</div>
+					<div class="content">
+						<ul>
+							<li v-for="(item,index) in varList">{{index+1}}. {{item.MEASURES}}</li>
+						</ul>
+					</div>
+				</div>
+				<div class="dy-card-content-item">
+					<div class="title">
+						<span class="l"></span>
+						<span>管控部门</span>
+					</div>
+					<div class="name">
+						<span>{{DEPT_NAME}}</span>
+					</div>
+				</div>
+				<div class="dy-card-content-item">
+					<div class="title">
+						<span class="l"></span>
+						<span>事故类型</span>
+					</div>
+					<div class="name">
+						<span>{{ACCIDENTS_NAME}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="dy-card-foot">
+				<span v-if="LEVELID=='levelA'" class="weui-tag bg-red">重大风险/A级</span>
+				<span v-if="LEVELID=='levelB'" class="weui-tag bg-orange">较大风险/B级</span>
+				<span v-if="LEVELID=='levelC'" class="weui-tag bg-yellow">一般风险/C级</span>
+				<span v-if="LEVELID=='levelD'" class="weui-tag bg-blue">低风险/D级</span>
+			</div>
+		</div>
+		<div style="padding: 0 20px;">
+			<a href="javascript:;" class="weui-btn bg-blue" style="font-size: 14px;line-height:2.6;" onclick="back()">返回列表</a>
+		</div>
+    <script type="text/javascript" src="../../assets/js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="../../../bi/js/pre-loader.js"></script>
+    <script src="../../../bi/js/sweetalert.min.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data:{
+					IDENTIFICATION_ID : '',
+					varList:[],
+					pd:[],
+					LEVELID:'',
+					DEPT_NAME:'',
+					ACCIDENTS_NAME:"",
+				},
+				methods: {
+					//初始执行
+					init() {
+						var FID = this.getUrlKey('FID');	//当接收过来的FID不为null时,表示此页面是修改进来的
+						this.IDENTIFICATION_ID=this.getUrlKey('id');
+						this.LEVELID=this.getUrlKey('LEVELID');
+						this.DEPT_NAME=this.getUrlKey('DEPT_NAME');
+						this.getData();
+					},
+					getData: function(){
+						var _this = this;
+						_this.loading = true;
+						$.ajax({
+							xhrFields: {
+								withCredentials: true
+							},
+							type: "POST",
+							url: config.httpurl +'/app/riskpoint/getForIdentification' ,
+							dataType: 'json',
+							data: {
+								CHECK_IDENTIFICATION_ID: _this.IDENTIFICATION_ID,
+							},
+							success: function(data){
+								vm.loading = false;
+								if("success" == data.result){
+									vm.varList = data.varList;
+									vm.pd = data.varList[0];
+									var nameArray=[];
+									for (var i = 0; i < vm.varList.length; i++) {
+										var ACCIDENTS_NAME=vm.varList[i].ACCIDENTS_NAME;
+										var names=ACCIDENTS_NAME.split(",");
+										for(var j = 0; j < names.length; j++) {
+											nameArray.distinctPush(names[j]);
+										}
+									}
+									vm.ACCIDENTS_NAME=nameArray.join(",");
+								}
+							}
+						})
+					},
+					//根据url参数名称获取参数值
+					getUrlKey: function (name) {
+						return decodeURIComponent(
+								(new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) || [, ""])[1].replace(/\+/g, '%20')) || null;
+					}
+				},
+				mounted(){
+					this.init();
+				}
+			})
+
+			function back(e) {
+				window.history.go(-1);
+			}
+		</script>
+	</body>
+</html>

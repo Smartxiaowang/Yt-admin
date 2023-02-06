@@ -1,0 +1,23 @@
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `BUS_PUBLICMETER`
+-- ----------------------------
+DROP TABLE IF EXISTS `BUS_PUBLICMETER`;
+CREATE TABLE `BUS_PUBLICMETER` (
+ 		`PUBLICMETER_ID` varchar(100) NOT NULL,
+		`PRECINCT_ID` varchar(255) DEFAULT NULL COMMENT '管理区',
+		`NAME` varchar(255) DEFAULT NULL COMMENT '巡更点名称',
+		`CODE` varchar(255) DEFAULT NULL COMMENT '编号',
+		`DESCR` varchar(255) DEFAULT NULL COMMENT '备注',
+		`ISDELETE` int(1) NOT NULL COMMENT '是否删除',
+		`CREATOR` varchar(255) DEFAULT NULL COMMENT '创建人',
+		`CREATTIME` varchar(32) DEFAULT NULL COMMENT '创建时间',
+		`OPERATOR` varchar(255) DEFAULT NULL COMMENT '操作人',
+		`OPERATTIME` varchar(32) DEFAULT NULL COMMENT '操作时间',
+		`TYPE` int(1) NOT NULL COMMENT '仪表类型',
+		`METERINDEX` varchar(255) DEFAULT NULL COMMENT '仪表指数',
+		`CYCLE` int(1) NOT NULL COMMENT '抄表周期',
+  		PRIMARY KEY (`PUBLICMETER_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

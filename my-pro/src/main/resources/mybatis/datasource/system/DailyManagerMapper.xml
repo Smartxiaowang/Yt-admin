@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zcloud.mapper.datasource.system.DailyManagerMapper">
+
+	<resultMap type="DailyManager" id="DailyManagerMap">
+		<id column="DAILY_ID" property="DAILY_ID"/>
+		<id column="WEEKLY_ID" property="WEEKLY_ID"/>
+		<result column="DATETIME" property="DATETIME"/>
+		<result column="DAYOFWEEK" property="DAYOFWEKK"/>
+		<result column="PROJECT_NAME" property="PROJECT_NAME"/>
+		<result column="TASK_PHASE" property="TASK_PHASE"/>
+		<result column="JOB_DETAILS" property="JOB_DETAILS"/>
+		<result column="FILLING_TYPE" property="FILLING_TYPE"/>
+		<result column="HOURS" property="HOURS"/>
+		<result column="STATE" property="STATE" />
+		<result column="EMPLOYEE" property="EMPLOYEE" />
+		<result column="ISDELETE" property="ISDELETE"/>
+		<result column="CREATOR" property="CREATOR"/>
+		<result column="CREATTIME" property="CREATTIME"/>
+		<result column="OPERATOR" property="OPERATOR"/>
+		<result column="OPERATTIME" property="OPERATTIME"/>
+	</resultMap>
+
+
+	<!--项目管理表名 -->
+	<sql id="tableName">
+		Daily_Manager
+	</sql>
+
+	<!-- 字段 -->
+	<sql id="Field">
+		DAILY_ID,
+		WEEKLY_ID,
+		DATETIME,
+		DAYOFWEEK,
+		PROJECT_NAME,
+		TASK_PHASE,
+		JOB_DETAILS,
+		FILLING_TYPE,
+		HOURS,
+		STATE,
+		EMPLOYEE,
+		ISDELETE,
+		CREATOR,
+		CREATTIME,
+		OPERATOR,
+		OPERATTIME
+	</sql>
+
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{DAILY_ID},
+		#{WEEKLY_ID},
+		#{DATETIME},
+		#{DAYOFWEEK},
+		#{PROJECT_NAME},
+		#{TASK_PHASE},
+		#{JOB_DETAILS},
+		#{FILLING_TYPE},
+		#{HOURS},
+		#{STATE},
+		#{EMPLOYEE},
+		#{ISDELETE},
+		#{CREATOR},
+		#{CREATTIME},
+		#{OPERATOR},
+		#{OPERATTIME}
+	</sql>
+
+
+
+	<!-- 查询日报列表 -->
+	<select id="datalistPage" parameterType="page" resultType="pd" >
+		select
+			<include refid="Field"></include>
+		from
+			<include refid="tableName"></include>
+		where ISDELETE = 0
+		AND WEEKLY_ID = #{pd.WEEKLY_ID}
+		<if test="pd.JOB_DETAILS != null and pd.JOB_DETAILS != ''">
+			and
+			(
+			JOB_DETAILS LIKE CONCAT(CONCAT('%', #{pd.JOB_DETAILS}),'%')
+			)
+		</if>
+		<if test="pd.FILLING_TYPE != null and pd.FILLING_TYPE != ''">
+			and
+			(
+			FILLING_TYPE LIKE CONCAT(CONCAT('%', #{pd.FILLING_TYPE}),'%')
+			)
+		</if>
+		<if test="pd.PROJECT_NAME != null and pd.PROJECT_NAME != ''">
+			and
+			(
+			PROJECT_NAME LIKE CONCAT(CONCAT('%', #{pd.PROJECT_NAME}),'%')
+			)
+		</if>
+		order by CREATTIME desc
+	</select>
+
+
+	<!-- 查询日报列表(当天) -->
+	<select id="daylistPage" parameterType="page" resultType="pd" >
+		select
+		<include refid="Field"></include>
+		from
+		<include refid="tableName"></include>
+		where ISDELETE = 0
+		and STATE = '审核中'
+		<if test="pd.JOB_DETAILS != null and pd.JOB_DETAILS != ''">
+			and
+			(
+			JOB_DETAILS LIKE CONCAT(CONCAT('%', #{pd.JOB_DETAILS}),'%')
+			)
+		</if>
+		<if test="pd.FILLING_TYPE != null and pd.FILLING_TYPE != ''">
+			and
+			(
+			FILLING_TYPE LIKE CONCAT(CONCAT('%', #{pd.FILLING_TYPE}),'%')
+			)
+		</if>
+		<if test="pd.PROJECT_NAME != null and pd.PROJECT_NAME != ''">
+			and
+			(
+			PROJECT_NAME LIKE CONCAT(CONCAT('%', #{pd.PROJECT_NAME}),'%')
+			)
+		</if>
+		order by CREATTIME desc
+	</select>
+
+	<!-- 修改 -->
+	<update id="edit" parameterType="pd" >
+		update  <include refid="tableName"></include>
+		set DATETIME 			= #{DATETIME},
+		PROJECT_NAME 			= #{PROJECT_NAME},
+		FILLING_TYPE            =#{FILLING_TYPE},
+		TASK_PHASE              =#{TASK_PHASE},
+		JOB_DETAILS             =#{JOB_DETAILS},
+		HOURS                   =#{HOURS},
+		STATE                   =#{STATE}
+		where
+		DAILY_ID = #{DAILY_ID}
+	</update>
+
+	<update id="approvedall" parameterType="String">
+		UPDATE <include refid="tableName"></include>
+		set STATE                   ='通过'
+		where
+		DAILY_ID in
+		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+
+	<!-- 修改状态 -->
+	<update id="approved" parameterType="pd" >
+		update  <include refid="tableName"></include>
+		set
+		STATE                   =#{STATE}
+		where
+		DAILY_ID = #{DAILY_ID}
+	</update>
+
+	<!-- 新增 -->
+	<insert id="addDaily" parameterType="pd">
+		insert into
+		<include refid="tableName"></include>
+		(
+			<include refid="Field"></include>
+		)values (
+			<include refid="FieldValue"></include>
+		)
+	</insert>
+
+	<!-- 删除 -->
+	<update id="delete" parameterType="pd">
+		update <include refid="tableName"></include>
+		set ISDELETE = 1
+		where
+		DAILY_ID = #{DAILY_ID}
+	</update>
+
+	<!--批量删除项目-->
+	<update id="deleteAllProject" parameterType="String">
+		UPDATE <include refid="tableName"></include>
+		set ISDELETE = 1
+		where
+		PROJECT_ID in
+		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+</mapper>

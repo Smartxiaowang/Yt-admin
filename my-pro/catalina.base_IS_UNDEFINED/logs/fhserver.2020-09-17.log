@@ -1,0 +1,806 @@
+2020-09-17 15:19:53.962 [http-nio-8081-exec-1] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==>  Preparing: select USER_ID, USERNAME, PASSWORD, NAME, ROLE_ID, LAST_LOGIN, IP, STATUS, BZ, SKIN, EMAIL, NUMBER, PHONE, ROLE_IDS, DEPARTMENT_ID, PRECINCT_ID, BASICINFO_ID, FUN_IDS from SYS_USER where USERNAME = ? 
+2020-09-17 15:19:53.979 [http-nio-8081-exec-1] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==> Parameters: admin(String)
+2020-09-17 15:19:54.006 [http-nio-8081-exec-1] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - <==      Total: 1
+2020-09-17 15:19:54.020 [http-nio-8081-exec-1] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==>  Preparing: select USER_ID, USERNAME, PASSWORD, NAME, ROLE_ID, LAST_LOGIN, IP, STATUS, BZ, SKIN, EMAIL, NUMBER, PHONE, ROLE_IDS, DEPARTMENT_ID, PRECINCT_ID, BASICINFO_ID, FUN_IDS from SYS_USER where USERNAME = ? 
+2020-09-17 15:19:54.021 [http-nio-8081-exec-1] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==> Parameters: admin(String)
+2020-09-17 15:19:54.023 [http-nio-8081-exec-1] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - <==      Total: 1
+2020-09-17 15:19:54.027 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.system.RoleMapper.findById - ==>  Preparing: select ROLE_ID, ROLE_NAME, RIGHTS, PARENT_ID, ADD_QX, DEL_QX, EDIT_QX, CHA_QX, RNUMBER from SYS_ROLE where ROLE_ID = ? 
+2020-09-17 15:19:54.027 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.system.RoleMapper.findById - ==> Parameters: 1(String)
+2020-09-17 15:19:54.032 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.system.RoleMapper.findById - <==      Total: 1
+2020-09-17 15:19:54.037 [http-nio-8081-exec-1] DEBUG c.zcloud.mapper.datasource.system.FHlogMapper.save - ==>  Preparing: insert into SYS_FHLOG ( USERNAME, CZTIME, CONTENT, FHLOG_ID ) values ( ?, ?, ?, ? ) 
+2020-09-17 15:19:54.038 [http-nio-8081-exec-1] DEBUG c.zcloud.mapper.datasource.system.FHlogMapper.save - ==> Parameters: admin(String), 2020-09-17 15:19:54(String), 成功登录系统(String), 3b0e7970fcd7484db609cdd12fd0d6bd(String)
+2020-09-17 15:19:54.053 [http-nio-8081-exec-1] DEBUG c.zcloud.mapper.datasource.system.FHlogMapper.save - <==    Updates: 1
+2020-09-17 15:19:54.224 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.UsersMapper.getUserAndRoleById - ==>  Preparing: select u.USER_ID, u.USERNAME, u.NAME, u.PASSWORD, u.SKIN, u.NUMBER, u.ROLE_IDS, r.ROLE_ID, r.ROLE_NAME, r.RIGHTS as ROLE_RIGHTS, r.ADD_QX, r.DEL_QX, r.EDIT_QX, r.CHA_QX from SYS_USER u left join SYS_ROLE r on u.ROLE_ID=r.ROLE_ID where u.STATUS=0 and u.USER_ID=? 
+2020-09-17 15:19:54.225 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.UsersMapper.getUserAndRoleById - ==> Parameters: 1(String)
+2020-09-17 15:19:54.227 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.UsersMapper.getUserAndRoleById - <==      Total: 1
+2020-09-17 15:19:54.232 [http-nio-8081-exec-2] DEBUG c.z.m.datasource.system.FhButtonMapper.listAll - ==>  Preparing: select NAME, SHIRO_KEY, BZ, FHBUTTON_ID from SYS_FHBUTTON 
+2020-09-17 15:19:54.232 [http-nio-8081-exec-2] DEBUG c.z.m.datasource.system.FhButtonMapper.listAll - ==> Parameters: 
+2020-09-17 15:19:54.236 [http-nio-8081-exec-2] DEBUG c.z.m.datasource.system.FhButtonMapper.listAll - <==      Total: 10
+2020-09-17 15:19:54.241 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.241 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 0(String)
+2020-09-17 15:19:54.245 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 5
+2020-09-17 15:19:54.245 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.245 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 1(String)
+2020-09-17 15:19:54.247 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 7
+2020-09-17 15:19:54.247 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.247 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 2(String)
+2020-09-17 15:19:54.249 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 2
+2020-09-17 15:19:54.249 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.249 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 6(String)
+2020-09-17 15:19:54.250 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.251 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.251 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 7(String)
+2020-09-17 15:19:54.252 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.252 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.252 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 9(String)
+2020-09-17 15:19:54.253 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.253 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.254 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 8(String)
+2020-09-17 15:19:54.255 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.255 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.256 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 12(String)
+2020-09-17 15:19:54.257 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.257 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.257 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 3(String)
+2020-09-17 15:19:54.258 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.259 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.259 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 71(String)
+2020-09-17 15:19:54.260 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.261 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.261 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 145(String)
+2020-09-17 15:19:54.263 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.263 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.264 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 120(String)
+2020-09-17 15:19:54.265 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 1
+2020-09-17 15:19:54.265 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.265 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 121(String)
+2020-09-17 15:19:54.266 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.267 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.267 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 10(String)
+2020-09-17 15:19:54.269 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 1
+2020-09-17 15:19:54.269 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.269 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 11(String)
+2020-09-17 15:19:54.272 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.272 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.272 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 5(String)
+2020-09-17 15:19:54.274 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 3
+2020-09-17 15:19:54.274 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.274 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 13(String)
+2020-09-17 15:19:54.284 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 3
+2020-09-17 15:19:54.284 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.284 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 14(String)
+2020-09-17 15:19:54.287 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.287 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.287 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 15(String)
+2020-09-17 15:19:54.290 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.290 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.290 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 16(String)
+2020-09-17 15:19:54.295 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 4
+2020-09-17 15:19:54.296 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.296 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 17(String)
+2020-09-17 15:19:54.298 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 12
+2020-09-17 15:19:54.298 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.299 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 21(String)
+2020-09-17 15:19:54.301 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.301 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.301 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 22(String)
+2020-09-17 15:19:54.303 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.303 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.303 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 23(String)
+2020-09-17 15:19:54.304 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.304 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.305 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 24(String)
+2020-09-17 15:19:54.306 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.306 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.306 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 25(String)
+2020-09-17 15:19:54.307 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.307 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.307 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 26(String)
+2020-09-17 15:19:54.309 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.309 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.309 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 27(String)
+2020-09-17 15:19:54.310 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.311 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.311 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 28(String)
+2020-09-17 15:19:54.312 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.312 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.312 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 29(String)
+2020-09-17 15:19:54.318 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.318 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.318 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 30(String)
+2020-09-17 15:19:54.320 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.321 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.321 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 31(String)
+2020-09-17 15:19:54.329 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.330 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.330 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 32(String)
+2020-09-17 15:19:54.331 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.331 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.331 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 18(String)
+2020-09-17 15:19:54.334 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 12
+2020-09-17 15:19:54.334 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.334 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 33(String)
+2020-09-17 15:19:54.336 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.336 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.336 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 34(String)
+2020-09-17 15:19:54.337 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.338 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.338 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 35(String)
+2020-09-17 15:19:54.339 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.339 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.339 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 36(String)
+2020-09-17 15:19:54.340 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.341 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.341 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 37(String)
+2020-09-17 15:19:54.342 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.342 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.342 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 38(String)
+2020-09-17 15:19:54.344 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.344 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.344 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 39(String)
+2020-09-17 15:19:54.346 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.347 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.347 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 40(String)
+2020-09-17 15:19:54.350 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.351 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.351 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 41(String)
+2020-09-17 15:19:54.352 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.352 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.352 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 42(String)
+2020-09-17 15:19:54.353 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.354 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.354 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 43(String)
+2020-09-17 15:19:54.355 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.355 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.355 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 44(String)
+2020-09-17 15:19:54.356 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.356 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.357 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 19(String)
+2020-09-17 15:19:54.359 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 12
+2020-09-17 15:19:54.359 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.360 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 45(String)
+2020-09-17 15:19:54.361 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.361 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.361 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 46(String)
+2020-09-17 15:19:54.362 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.362 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.362 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 47(String)
+2020-09-17 15:19:54.364 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.364 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.364 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 48(String)
+2020-09-17 15:19:54.365 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.365 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.365 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 49(String)
+2020-09-17 15:19:54.367 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.367 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.367 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 50(String)
+2020-09-17 15:19:54.368 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.368 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.368 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 51(String)
+2020-09-17 15:19:54.370 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.370 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.370 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 52(String)
+2020-09-17 15:19:54.371 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.371 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.372 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 53(String)
+2020-09-17 15:19:54.373 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.373 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.373 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 54(String)
+2020-09-17 15:19:54.381 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.381 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.381 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 55(String)
+2020-09-17 15:19:54.383 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.383 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.383 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 56(String)
+2020-09-17 15:19:54.384 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.384 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.384 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 20(String)
+2020-09-17 15:19:54.387 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 14
+2020-09-17 15:19:54.387 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.387 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 57(String)
+2020-09-17 15:19:54.388 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.389 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.389 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 58(String)
+2020-09-17 15:19:54.390 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.390 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.390 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 59(String)
+2020-09-17 15:19:54.391 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.392 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.392 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 60(String)
+2020-09-17 15:19:54.393 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.393 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.393 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 61(String)
+2020-09-17 15:19:54.394 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.394 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.394 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 62(String)
+2020-09-17 15:19:54.397 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.397 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.397 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 63(String)
+2020-09-17 15:19:54.399 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.399 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.399 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 64(String)
+2020-09-17 15:19:54.401 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.401 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.401 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 65(String)
+2020-09-17 15:19:54.403 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.403 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.403 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 66(String)
+2020-09-17 15:19:54.405 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.405 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.405 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 67(String)
+2020-09-17 15:19:54.407 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.407 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.407 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 68(String)
+2020-09-17 15:19:54.409 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.409 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.409 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 69(String)
+2020-09-17 15:19:54.411 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.411 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.411 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 70(String)
+2020-09-17 15:19:54.413 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.413 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.413 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 95(String)
+2020-09-17 15:19:54.415 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.415 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.415 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 4(String)
+2020-09-17 15:19:54.417 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.417 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:19:54.417 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 76(String)
+2020-09-17 15:19:54.419 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:19:54.425 [http-nio-8081-exec-2] DEBUG c.z.mapper.datasource.system.UsersMapper.saveIP - ==>  Preparing: update SYS_USER set IP = ?, LAST_LOGIN = ? where USERNAME = ? 
+2020-09-17 15:19:54.425 [http-nio-8081-exec-2] DEBUG c.z.mapper.datasource.system.UsersMapper.saveIP - ==> Parameters: 192.168.0.7(String), 2020-09-17 15:19:54(String), admin(String)
+2020-09-17 15:19:54.429 [http-nio-8081-exec-2] DEBUG c.z.mapper.datasource.system.UsersMapper.saveIP - <==    Updates: 1
+2020-09-17 15:19:54.475 [http-nio-8081-exec-3] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-09-17 15:19:54.476 [http-nio-8081-exec-4] DEBUG c.z.mapper.datasource.system.PhotoMapper.findById - ==>  Preparing: select USERNAME, PHOTO0, PHOTO1, PHOTO2, PHOTO3, USERPHOTO_ID from SYS_USERPHOTO where USERNAME = ? 
+2020-09-17 15:19:54.476 [http-nio-8081-exec-4] DEBUG c.z.mapper.datasource.system.PhotoMapper.findById - ==> Parameters: admin(String)
+2020-09-17 15:19:54.479 [http-nio-8081-exec-4] DEBUG c.z.mapper.datasource.system.PhotoMapper.findById - <==      Total: 1
+2020-09-17 15:19:54.486 [http-nio-8081-exec-4] DEBUG c.z.m.datasource.system.FhsmsMapper.findFhsmsCount - ==>  Preparing: select count(FHSMS_ID) fhsmsCount from SYS_FHSMS where STATUS = '2' and TYPE = '1' and FROM_USERNAME = ? 
+2020-09-17 15:19:54.486 [http-nio-8081-exec-4] DEBUG c.z.m.datasource.system.FhsmsMapper.findFhsmsCount - ==> Parameters: admin(String)
+2020-09-17 15:19:54.489 [http-nio-8081-exec-4] DEBUG c.z.m.datasource.system.FhsmsMapper.findFhsmsCount - <==      Total: 1
+2020-09-17 15:19:54.496 [http-nio-8081-exec-4] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==>  Preparing: select USER_ID, USERNAME, PASSWORD, NAME, ROLE_ID, LAST_LOGIN, IP, STATUS, BZ, SKIN, EMAIL, NUMBER, PHONE, ROLE_IDS, DEPARTMENT_ID, PRECINCT_ID, BASICINFO_ID, FUN_IDS from SYS_USER where USERNAME = ? 
+2020-09-17 15:19:54.496 [http-nio-8081-exec-4] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==> Parameters: admin(String)
+2020-09-17 15:19:54.498 [http-nio-8081-exec-4] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - <==      Total: 1
+2020-09-17 15:19:54.515 [http-nio-8081-exec-4] DEBUG c.z.m.d.s.RoleMapper.listAllRolesByArryROLE_ID - ==>  Preparing: select RNUMBER from SYS_ROLE where ROLE_ID in ( ? ) 
+2020-09-17 15:19:54.516 [http-nio-8081-exec-4] DEBUG c.z.m.d.s.RoleMapper.listAllRolesByArryROLE_ID - ==> Parameters: 1(String)
+2020-09-17 15:19:54.517 [http-nio-8081-exec-4] DEBUG c.z.m.d.s.RoleMapper.listAllRolesByArryROLE_ID - <==      Total: 1
+2020-09-17 15:19:57.467 [http-nio-8081-exec-6] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-09-17 15:52:26.521 [http-nio-8081-exec-2] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==>  Preparing: select USER_ID, USERNAME, PASSWORD, NAME, ROLE_ID, LAST_LOGIN, IP, STATUS, BZ, SKIN, EMAIL, NUMBER, PHONE, ROLE_IDS, DEPARTMENT_ID, PRECINCT_ID, BASICINFO_ID, FUN_IDS from SYS_USER where USERNAME = ? 
+2020-09-17 15:52:26.538 [http-nio-8081-exec-2] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==> Parameters: admin(String)
+2020-09-17 15:52:26.556 [http-nio-8081-exec-2] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - <==      Total: 1
+2020-09-17 15:52:26.565 [http-nio-8081-exec-2] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==>  Preparing: select USER_ID, USERNAME, PASSWORD, NAME, ROLE_ID, LAST_LOGIN, IP, STATUS, BZ, SKIN, EMAIL, NUMBER, PHONE, ROLE_IDS, DEPARTMENT_ID, PRECINCT_ID, BASICINFO_ID, FUN_IDS from SYS_USER where USERNAME = ? 
+2020-09-17 15:52:26.565 [http-nio-8081-exec-2] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==> Parameters: admin(String)
+2020-09-17 15:52:26.567 [http-nio-8081-exec-2] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - <==      Total: 1
+2020-09-17 15:52:26.615 [http-nio-8081-exec-2] DEBUG c.z.mapper.datasource.system.RoleMapper.findById - ==>  Preparing: select ROLE_ID, ROLE_NAME, RIGHTS, PARENT_ID, ADD_QX, DEL_QX, EDIT_QX, CHA_QX, RNUMBER from SYS_ROLE where ROLE_ID = ? 
+2020-09-17 15:52:26.615 [http-nio-8081-exec-2] DEBUG c.z.mapper.datasource.system.RoleMapper.findById - ==> Parameters: 1(String)
+2020-09-17 15:52:26.624 [http-nio-8081-exec-2] DEBUG c.z.mapper.datasource.system.RoleMapper.findById - <==      Total: 1
+2020-09-17 15:52:26.637 [http-nio-8081-exec-2] DEBUG c.zcloud.mapper.datasource.system.FHlogMapper.save - ==>  Preparing: insert into SYS_FHLOG ( USERNAME, CZTIME, CONTENT, FHLOG_ID ) values ( ?, ?, ?, ? ) 
+2020-09-17 15:52:26.638 [http-nio-8081-exec-2] DEBUG c.zcloud.mapper.datasource.system.FHlogMapper.save - ==> Parameters: admin(String), 2020-09-17 15:52:26(String), 成功登录系统(String), bbbfb44675be4a0aa88ea8065ac703db(String)
+2020-09-17 15:52:26.643 [http-nio-8081-exec-2] DEBUG c.zcloud.mapper.datasource.system.FHlogMapper.save - <==    Updates: 1
+2020-09-17 15:52:26.884 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.UsersMapper.getUserAndRoleById - ==>  Preparing: select u.USER_ID, u.USERNAME, u.NAME, u.PASSWORD, u.SKIN, u.NUMBER, u.ROLE_IDS, r.ROLE_ID, r.ROLE_NAME, r.RIGHTS as ROLE_RIGHTS, r.ADD_QX, r.DEL_QX, r.EDIT_QX, r.CHA_QX from SYS_USER u left join SYS_ROLE r on u.ROLE_ID=r.ROLE_ID where u.STATUS=0 and u.USER_ID=? 
+2020-09-17 15:52:26.885 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.UsersMapper.getUserAndRoleById - ==> Parameters: 1(String)
+2020-09-17 15:52:26.887 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.UsersMapper.getUserAndRoleById - <==      Total: 1
+2020-09-17 15:52:26.893 [http-nio-8081-exec-3] DEBUG c.z.m.datasource.system.FhButtonMapper.listAll - ==>  Preparing: select NAME, SHIRO_KEY, BZ, FHBUTTON_ID from SYS_FHBUTTON 
+2020-09-17 15:52:26.894 [http-nio-8081-exec-3] DEBUG c.z.m.datasource.system.FhButtonMapper.listAll - ==> Parameters: 
+2020-09-17 15:52:26.897 [http-nio-8081-exec-3] DEBUG c.z.m.datasource.system.FhButtonMapper.listAll - <==      Total: 10
+2020-09-17 15:52:26.902 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.903 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 0(String)
+2020-09-17 15:52:26.905 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 5
+2020-09-17 15:52:26.906 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.906 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 1(String)
+2020-09-17 15:52:26.908 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 7
+2020-09-17 15:52:26.908 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.908 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 2(String)
+2020-09-17 15:52:26.910 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 2
+2020-09-17 15:52:26.911 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.911 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 6(String)
+2020-09-17 15:52:26.913 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.913 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.914 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 7(String)
+2020-09-17 15:52:26.915 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.915 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.916 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 9(String)
+2020-09-17 15:52:26.917 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.918 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.918 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 8(String)
+2020-09-17 15:52:26.919 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.919 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.919 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 12(String)
+2020-09-17 15:52:26.920 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.920 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.921 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 3(String)
+2020-09-17 15:52:26.922 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.922 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.923 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 71(String)
+2020-09-17 15:52:26.924 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.924 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.925 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 145(String)
+2020-09-17 15:52:26.926 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.927 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.927 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 120(String)
+2020-09-17 15:52:26.929 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 1
+2020-09-17 15:52:26.930 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.930 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 121(String)
+2020-09-17 15:52:26.932 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.932 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.933 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 10(String)
+2020-09-17 15:52:26.935 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 1
+2020-09-17 15:52:26.936 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.936 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 11(String)
+2020-09-17 15:52:26.937 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.937 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.938 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 5(String)
+2020-09-17 15:52:26.940 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 3
+2020-09-17 15:52:26.940 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.940 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 13(String)
+2020-09-17 15:52:26.942 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 3
+2020-09-17 15:52:26.942 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.942 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 14(String)
+2020-09-17 15:52:26.944 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.944 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.944 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 15(String)
+2020-09-17 15:52:26.946 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.946 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.946 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 16(String)
+2020-09-17 15:52:26.950 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 4
+2020-09-17 15:52:26.951 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.951 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 17(String)
+2020-09-17 15:52:26.953 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 12
+2020-09-17 15:52:26.953 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.953 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 21(String)
+2020-09-17 15:52:26.955 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.955 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.955 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 22(String)
+2020-09-17 15:52:26.957 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.957 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.957 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 23(String)
+2020-09-17 15:52:26.959 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.959 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.960 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 24(String)
+2020-09-17 15:52:26.963 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.963 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.963 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 25(String)
+2020-09-17 15:52:26.965 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.965 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.965 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 26(String)
+2020-09-17 15:52:26.967 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.967 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.967 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 27(String)
+2020-09-17 15:52:26.968 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.968 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.969 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 28(String)
+2020-09-17 15:52:26.970 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.970 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.970 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 29(String)
+2020-09-17 15:52:26.972 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.972 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.972 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 30(String)
+2020-09-17 15:52:26.973 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.973 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.973 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 31(String)
+2020-09-17 15:52:26.975 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.975 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.975 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 32(String)
+2020-09-17 15:52:26.977 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.978 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.978 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 18(String)
+2020-09-17 15:52:26.981 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 12
+2020-09-17 15:52:26.981 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.981 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 33(String)
+2020-09-17 15:52:26.982 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.983 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.983 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 34(String)
+2020-09-17 15:52:26.984 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.984 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.984 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 35(String)
+2020-09-17 15:52:26.986 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.986 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.986 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 36(String)
+2020-09-17 15:52:26.987 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.988 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.988 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 37(String)
+2020-09-17 15:52:26.989 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.989 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.989 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 38(String)
+2020-09-17 15:52:26.990 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.990 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.991 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 39(String)
+2020-09-17 15:52:26.992 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.993 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.993 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 40(String)
+2020-09-17 15:52:26.995 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.995 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.995 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 41(String)
+2020-09-17 15:52:26.997 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.998 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.998 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 42(String)
+2020-09-17 15:52:26.999 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:26.999 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:26.999 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 43(String)
+2020-09-17 15:52:27.001 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.001 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.001 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 44(String)
+2020-09-17 15:52:27.003 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.003 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.003 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 19(String)
+2020-09-17 15:52:27.006 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 12
+2020-09-17 15:52:27.007 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.007 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 45(String)
+2020-09-17 15:52:27.008 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.008 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.008 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 46(String)
+2020-09-17 15:52:27.010 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.011 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.011 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 47(String)
+2020-09-17 15:52:27.013 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.013 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.013 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 48(String)
+2020-09-17 15:52:27.015 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.015 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.015 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 49(String)
+2020-09-17 15:52:27.016 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.017 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.017 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 50(String)
+2020-09-17 15:52:27.019 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.019 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.019 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 51(String)
+2020-09-17 15:52:27.021 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.021 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.021 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 52(String)
+2020-09-17 15:52:27.023 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.023 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.023 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 53(String)
+2020-09-17 15:52:27.025 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.025 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.025 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 54(String)
+2020-09-17 15:52:27.027 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.027 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.028 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 55(String)
+2020-09-17 15:52:27.029 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.029 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.029 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 56(String)
+2020-09-17 15:52:27.031 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.031 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.031 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 20(String)
+2020-09-17 15:52:27.033 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 14
+2020-09-17 15:52:27.034 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.034 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 57(String)
+2020-09-17 15:52:27.035 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.035 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.036 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 58(String)
+2020-09-17 15:52:27.038 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.038 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.038 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 59(String)
+2020-09-17 15:52:27.040 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.040 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.040 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 60(String)
+2020-09-17 15:52:27.042 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.042 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.042 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 61(String)
+2020-09-17 15:52:27.044 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.044 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.044 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 62(String)
+2020-09-17 15:52:27.046 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.046 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.046 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 63(String)
+2020-09-17 15:52:27.048 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.048 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.048 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 64(String)
+2020-09-17 15:52:27.049 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.050 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.050 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 65(String)
+2020-09-17 15:52:27.051 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.051 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.051 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 66(String)
+2020-09-17 15:52:27.053 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.053 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.053 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 67(String)
+2020-09-17 15:52:27.054 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.054 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.054 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 68(String)
+2020-09-17 15:52:27.055 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.056 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.056 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 69(String)
+2020-09-17 15:52:27.058 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.058 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.058 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 70(String)
+2020-09-17 15:52:27.060 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.060 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.060 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 95(String)
+2020-09-17 15:52:27.061 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.062 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.062 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 4(String)
+2020-09-17 15:52:27.063 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.064 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:27.064 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 76(String)
+2020-09-17 15:52:27.065 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:27.072 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.system.UsersMapper.saveIP - ==>  Preparing: update SYS_USER set IP = ?, LAST_LOGIN = ? where USERNAME = ? 
+2020-09-17 15:52:27.072 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.system.UsersMapper.saveIP - ==> Parameters: 192.168.0.9(String), 2020-09-17 15:52:27(String), admin(String)
+2020-09-17 15:52:27.074 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.system.UsersMapper.saveIP - <==    Updates: 1
+2020-09-17 15:52:27.154 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.system.PhotoMapper.findById - ==>  Preparing: select USERNAME, PHOTO0, PHOTO1, PHOTO2, PHOTO3, USERPHOTO_ID from SYS_USERPHOTO where USERNAME = ? 
+2020-09-17 15:52:27.154 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.system.PhotoMapper.findById - ==> Parameters: admin(String)
+2020-09-17 15:52:27.156 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.system.PhotoMapper.findById - <==      Total: 1
+2020-09-17 15:52:27.165 [http-nio-8081-exec-8] DEBUG c.z.m.datasource.system.FhsmsMapper.findFhsmsCount - ==>  Preparing: select count(FHSMS_ID) fhsmsCount from SYS_FHSMS where STATUS = '2' and TYPE = '1' and FROM_USERNAME = ? 
+2020-09-17 15:52:27.165 [http-nio-8081-exec-8] DEBUG c.z.m.datasource.system.FhsmsMapper.findFhsmsCount - ==> Parameters: admin(String)
+2020-09-17 15:52:27.170 [http-nio-8081-exec-8] DEBUG c.z.m.datasource.system.FhsmsMapper.findFhsmsCount - <==      Total: 1
+2020-09-17 15:52:27.178 [http-nio-8081-exec-8] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==>  Preparing: select USER_ID, USERNAME, PASSWORD, NAME, ROLE_ID, LAST_LOGIN, IP, STATUS, BZ, SKIN, EMAIL, NUMBER, PHONE, ROLE_IDS, DEPARTMENT_ID, PRECINCT_ID, BASICINFO_ID, FUN_IDS from SYS_USER where USERNAME = ? 
+2020-09-17 15:52:27.178 [http-nio-8081-exec-8] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==> Parameters: admin(String)
+2020-09-17 15:52:27.180 [http-nio-8081-exec-8] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - <==      Total: 1
+2020-09-17 15:52:27.191 [http-nio-8081-exec-9] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-09-17 15:52:27.204 [http-nio-8081-exec-8] DEBUG c.z.m.d.s.RoleMapper.listAllRolesByArryROLE_ID - ==>  Preparing: select RNUMBER from SYS_ROLE where ROLE_ID in ( ? ) 
+2020-09-17 15:52:27.205 [http-nio-8081-exec-8] DEBUG c.z.m.d.s.RoleMapper.listAllRolesByArryROLE_ID - ==> Parameters: 1(String)
+2020-09-17 15:52:27.206 [http-nio-8081-exec-8] DEBUG c.z.m.d.s.RoleMapper.listAllRolesByArryROLE_ID - <==      Total: 1
+2020-09-17 15:52:30.179 [http-nio-8081-exec-10] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-09-17 15:52:32.615 [http-nio-8081-exec-5] DEBUG c.z.m.datasource.system.MenuMapper.getMenuById - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where MENU_ID=? 
+2020-09-17 15:52:32.615 [http-nio-8081-exec-5] DEBUG c.z.m.datasource.system.MenuMapper.getMenuById - ==> Parameters: 16(String)
+2020-09-17 15:52:32.617 [http-nio-8081-exec-5] DEBUG c.z.m.datasource.system.MenuMapper.getMenuById - <==      Total: 1
+2020-09-17 15:52:32.621 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.621 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 16(String)
+2020-09-17 15:52:32.623 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 4
+2020-09-17 15:52:32.623 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.623 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 17(String)
+2020-09-17 15:52:32.625 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 12
+2020-09-17 15:52:32.625 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.625 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 21(String)
+2020-09-17 15:52:32.627 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.627 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.627 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 22(String)
+2020-09-17 15:52:32.629 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.629 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.629 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 23(String)
+2020-09-17 15:52:32.633 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.633 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.633 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 24(String)
+2020-09-17 15:52:32.634 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.634 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.634 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 25(String)
+2020-09-17 15:52:32.642 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.643 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.643 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 26(String)
+2020-09-17 15:52:32.645 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.646 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.646 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 27(String)
+2020-09-17 15:52:32.647 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.648 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.648 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 28(String)
+2020-09-17 15:52:32.649 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.649 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.649 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 29(String)
+2020-09-17 15:52:32.654 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.654 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.654 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 30(String)
+2020-09-17 15:52:32.656 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.656 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.656 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 31(String)
+2020-09-17 15:52:32.657 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.657 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.657 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 32(String)
+2020-09-17 15:52:32.660 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.660 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.661 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 18(String)
+2020-09-17 15:52:32.664 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 12
+2020-09-17 15:52:32.664 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.664 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 33(String)
+2020-09-17 15:52:32.671 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.671 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.671 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 34(String)
+2020-09-17 15:52:32.676 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.676 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.676 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 35(String)
+2020-09-17 15:52:32.678 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.679 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.679 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 36(String)
+2020-09-17 15:52:32.681 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.681 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.682 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 37(String)
+2020-09-17 15:52:32.687 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.687 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.687 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 38(String)
+2020-09-17 15:52:32.688 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.688 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.688 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 39(String)
+2020-09-17 15:52:32.690 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.690 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.690 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 40(String)
+2020-09-17 15:52:32.691 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.691 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.691 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 41(String)
+2020-09-17 15:52:32.693 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.693 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.693 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 42(String)
+2020-09-17 15:52:32.695 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.695 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.695 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 43(String)
+2020-09-17 15:52:32.697 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.698 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.698 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 44(String)
+2020-09-17 15:52:32.699 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.699 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.699 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 19(String)
+2020-09-17 15:52:32.701 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 12
+2020-09-17 15:52:32.701 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.701 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 45(String)
+2020-09-17 15:52:32.703 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.703 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.703 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 46(String)
+2020-09-17 15:52:32.704 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.704 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.704 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 47(String)
+2020-09-17 15:52:32.706 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.706 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.706 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 48(String)
+2020-09-17 15:52:32.707 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.708 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.708 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 49(String)
+2020-09-17 15:52:32.709 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.709 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.709 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 50(String)
+2020-09-17 15:52:32.711 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.711 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.711 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 51(String)
+2020-09-17 15:52:32.713 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.713 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.713 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 52(String)
+2020-09-17 15:52:32.714 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.714 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.714 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 53(String)
+2020-09-17 15:52:32.715 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.716 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.716 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 54(String)
+2020-09-17 15:52:32.717 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.717 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.717 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 55(String)
+2020-09-17 15:52:32.719 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.719 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.719 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 56(String)
+2020-09-17 15:52:32.720 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.721 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.721 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 20(String)
+2020-09-17 15:52:32.723 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 14
+2020-09-17 15:52:32.723 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.723 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 57(String)
+2020-09-17 15:52:32.725 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.725 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.725 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 58(String)
+2020-09-17 15:52:32.726 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.726 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.726 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 59(String)
+2020-09-17 15:52:32.727 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.727 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.727 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 60(String)
+2020-09-17 15:52:32.730 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.730 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.731 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 61(String)
+2020-09-17 15:52:32.732 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.732 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.732 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 62(String)
+2020-09-17 15:52:32.733 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.733 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.733 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 63(String)
+2020-09-17 15:52:32.735 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.735 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.735 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 64(String)
+2020-09-17 15:52:32.736 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.736 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.736 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 65(String)
+2020-09-17 15:52:32.738 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.738 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.738 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 66(String)
+2020-09-17 15:52:32.739 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.739 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.739 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 67(String)
+2020-09-17 15:52:32.741 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.741 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.741 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 68(String)
+2020-09-17 15:52:32.743 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.743 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.743 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 69(String)
+2020-09-17 15:52:32.745 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-17 15:52:32.745 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-09-17 15:52:32.745 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 70(String)
+2020-09-17 15:52:32.747 [http-nio-8081-exec-5] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-09-18 10:12:20.626 [http-nio-8081-exec-5] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)

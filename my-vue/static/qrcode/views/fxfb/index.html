@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>辨识部位</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/weui.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/weuix.css" />
+
+    <!-- vue -->
+    <script src="../../../bi/js/vue.js"></script>
+    <!--全局配置-->
+    <script src="../../../config.js"></script>
+	</head>
+	<body ontouchstart>
+		<div id="app">
+			<div class="page-bg">
+				<div class="tab-box">
+					<div class="weui-tab" id="t4">
+						<div class="weui-tab-nav">
+							<a href="javascript:" @click="switchoverTab('1')" :class="tab=='1'?' bg-green':''" class="weui-navbar__item weui-nav-green">检查记录</a>
+							<a href="javascript:" @click="switchoverTab('2')" :class="tab=='2'?' bg-green':''" class="weui-navbar__item weui-nav-green">风险分布</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="weui-search-bar">
+					<input type="search" v-model="KEYWORDS" class="search-input" id='search' placeholder='请输入关键字...' />
+					<button class="weui-btn weui-btn_primary" v-on:click="getData">
+						<i class="icon icon-4" style="margin-right: 5px;font-size: 12px;"></i>搜索</button>
+				</div>
+			</div>
+			<div class="weui-news">
+				<ul class="weui-news-list" >
+					<template v-for="(data,index) in list">
+						<li class="weui-news-item" v-on:click="goToDetail(data)">
+							<div class="weui-news-inner">
+								<div class="weui-news-inners">
+									<div class="weui-news-text">
+										<div class="weui-news-title">部位名称：{{data.PARTSNAME}}</div>
+										<div v-if="data.LEVELID=='levelA'" class="weui-tag bg-red">重大风险/A级</div>
+										<div v-if="data.LEVELID=='levelB'" class="weui-tag bg-orange">较大风险/B级</div>
+										<div v-if="data.LEVELID=='levelC'" class="weui-tag bg-yellow">一般风险/C级</div>
+										<div v-if="data.LEVELID=='levelD'" class="weui-tag bg-blue">低风险/D级</div>
+									</div>
+									<div class="wui-news-info">
+										<div class="wui-subinfo">风险点（单元）：{{data.RISKUNITNAME}}</div>
+										<div class="wui-subinfo">管控部门：{{data.DEPT_NAME}}</div>
+									</div>
+								</div>
+								<div class="weui-cell__ft"></div>
+							</div>
+						</li>
+					</template>
+					<!-- <li class="weui-news-item" onclick="goToDetail()">
+						<div class="weui-news-inner">
+							<div class="weui-news-inners">
+								<div class="weui-news-text">
+									<div class="weui-news-title">部位名称：用以帮助开发</div>
+									<div class="weui-tag bg-orange light">一般风险/C级</div>
+								</div>
+								<div class="wui-news-info">
+									<div class="wui-subinfo">风险点：部位A</div>
+									<div class="wui-subinfo">所属部门：技术研发</div>
+								</div>
+							</div>
+							<div class="weui-cell__ft"></div>
+						</div>
+					</li>
+					<li class="weui-news-item" onclick="goToNext()">
+						<div class="weui-news-inner">
+							<div class="weui-news-inners">
+								<div class="weui-news-text">
+									<div class="weui-news-title">部位名称：用以帮助开发</div>
+									<div class="weui-tag bg-orange light">一般风险/C级</div>
+								</div>
+								<div class="wui-news-info">
+									<div class="wui-subinfo">风险点：部位A</div>
+									<div class="wui-subinfo">所属部门：技术研发</div>
+								</div>
+							</div>
+							<div class="weui-cell__ft"></div>
+						</div>
+					</li> -->
+				</ul>
+			</div>
+		</div>
+    <script type="text/javascript" src="../../assets/js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="../../../bi/js/pre-loader.js"></script>
+    <script src="../../../bi/js/sweetalert.min.js"></script>
+
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+
+				data: {
+					list: [], //返回数据
+					page: 1, //分页参数--页数
+					rows: 1000, //分页参数--每页数据条数
+					totalCount: 0, //分页参数--初始化页数
+					isEnd: false, //防止多次刷新
+					totalPage: 0, //分页参数--分页数量
+					KEYWORDS: "",
+					loading: false, //加载状态
+					RISK_UNIT_ID: "",
+					tab:'1',//tab签
+				},
+
+				methods: {
+					//初始执行
+					init() {
+						var FID = this.getUrlKey('FID'); //当接收过来的FID不为null时,表示此页面是修改进来的
+						this.RISK_UNIT_ID = FID;
+						//复选框控制全选,全不选
+						$('#zcheckbox').click(function() {
+							if ($(this).is(':checked')) {
+								$("input[name='ids']").click();
+							} else {
+								$("input[name='ids']").attr("checked", false);
+							}
+						});
+						console.info(111);
+						this.getData();
+					},
+					getData: function() {
+						console.info(5415);
+						var _this = this;
+						_this.loading = true;
+						$.ajax({
+							xhrFields: {
+								withCredentials: true
+							},
+							type: "POST",
+							url: config.httpurl + 'app/riskpoint/list?showCount=' + _this.rows + '&currentPage=' +
+								_this.page,
+							dataType: 'json',
+							data: {
+								RISK_UNIT_ID: _this.RISK_UNIT_ID,
+								IS_APP: 1,
+								tm: new Date().getTime(),
+								KEYWORDS: _this.KEYWORDS, //关键字模糊查询
+							},
+							success: function(data) {
+								vm.loading = false;
+								if ("success" == data.result) {
+									vm.list = data.varList;
+								}
+							}
+						})
+					},
+					goToDetail: function(e) {
+						if(this.tab == '2'){
+							window.location.href = './detail.html?id='+e.IDENTIFICATIONPARTS_ID+'&LEVELID='+e.LEVELID+"&DEPT_NAME="+e.DEPT_NAME;
+						} else if(this.tab == '1'){
+							window.location.href = './record_list.html?FID='+e.IDENTIFICATIONPARTS_ID;
+						}
+					},
+					//根据url参数名称获取参数值
+					getUrlKey: function(name) {
+						return decodeURIComponent(
+							(new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) || [,
+								""
+							])[1].replace(/\+/g, '%20')) || null;
+					},
+					switchoverTab: function (tabNum){
+						this.tab = tabNum;
+					}
+				},
+				mounted() {
+					this.init();
+				}
+			})
+		</script>
+	</body>
+</html>
+<style type="text/css">
+	.search-input {
+		padding-left: 10px;
+	}
+
+	.wui-news-info {
+		padding-bottom: 0.4rem;
+	}
+
+	.wui-subinfo {
+		font-size: 0.6rem;
+		color: #999;
+	}
+
+	.weui-search-bar .weui-btn {
+		text-align: center;
+		width: 110px;
+		display: flex;
+		align-items: center;
+		font-size: 0.65rem;
+		padding: 0rem 0.6rem;
+		line-height: 2.26;
+	}
+</style>

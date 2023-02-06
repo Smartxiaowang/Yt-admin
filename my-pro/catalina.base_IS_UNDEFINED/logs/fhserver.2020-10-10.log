@@ -1,0 +1,241 @@
+2020-10-10 15:19:55.111 [http-nio-8081-exec-1] DEBUG c.z.m.datasource.bus.InfoManagerMapper.listAllApp - ==>  Preparing: select f.INFOTITLE, f.SUBTITLE, f.TITLEIMG, f.ISVIDEO, f.INFOCONTENT, f.ISRELEASE, f.OPDATE, f.OPUSER, f.RELEASEDATE, f.ISDELETE, f.INFOMANAGER_ID from BUS_INFOMANAGER f where f.ISDELETE = '0' order by OPDATE desc 
+2020-10-10 15:19:55.173 [http-nio-8081-exec-1] DEBUG c.z.m.datasource.bus.InfoManagerMapper.listAllApp - ==> Parameters: 
+2020-10-10 15:19:55.219 [http-nio-8081-exec-1] DEBUG c.z.m.datasource.bus.InfoManagerMapper.listAllApp - <==      Total: 5
+2020-10-10 15:19:55.502 [http-nio-8081-exec-5] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-10 15:19:55.502 [http-nio-8081-exec-2] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-10 15:19:55.502 [http-nio-8081-exec-3] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-10 15:19:55.520 [http-nio-8081-exec-6] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-10 15:19:55.520 [http-nio-8081-exec-4] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-10 15:20:08.266 [http-nio-8081-exec-7] DEBUG c.z.m.datasource.bus.InfoManagerMapper.findById - ==>  Preparing: select f.INFOTITLE, f.SUBTITLE, f.TITLEIMG, f.ISVIDEO, f.INFOCONTENT, f.ISRELEASE, f.OPDATE, f.OPUSER, f.RELEASEDATE, f.ISDELETE, f.INFOMANAGER_ID from BUS_INFOMANAGER f where f.INFOMANAGER_ID = ? 
+2020-10-10 15:20:08.267 [http-nio-8081-exec-7] DEBUG c.z.m.datasource.bus.InfoManagerMapper.findById - ==> Parameters: c1c7098c9a3d4dfe89425f1cf0c9f772(String)
+2020-10-10 15:20:08.272 [http-nio-8081-exec-7] DEBUG c.z.m.datasource.bus.InfoManagerMapper.findById - <==      Total: 1
+2020-10-10 15:20:08.306 [http-nio-8081-exec-8] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-10 15:20:12.057 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==>  Preparing: select f.NAME, f.ENGLISH_NAME, f.DESCR, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.PREFERENTIAL_PRICE, f.PRICE, f.PARENT_ID, f.CLASSIFY_ID, f.THEME_COLOR, f.FEATURES, f.AGING, f.AREA, f.SORT, f.ISENABLE, f.FORBIDDEN_REASON from BUS_CLASSIFY f where f.ISDELETE = '0' AND f.PARENT_ID = ? order by f.SORT 
+2020-10-10 15:20:12.058 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==> Parameters: -1(Integer)
+2020-10-10 15:20:12.062 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - <==      Total: 3
+2020-10-10 15:20:13.225 [http-nio-8081-exec-9] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - ==>  Preparing: select f.NAME, f.PHONE, f.ADDRESS, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.USER_ID, f.TYPE, f.IS_DEFAULT, f.ADDRESS_ID, c.NAME AS USER_NAME from BUS_ADDRESS f left join BUS_CUSTOMER c on c.APPID=f.USER_ID where f.ISDELETE = '0' order by f.IS_DEFAULT, f.OPERATTIME desc 
+2020-10-10 15:20:13.225 [http-nio-8081-exec-9] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - ==> Parameters: 
+2020-10-10 15:20:13.230 [http-nio-8081-exec-9] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - <==      Total: 18
+2020-10-10 15:20:13.237 [http-nio-8081-exec-9] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - ==>  Preparing: select f.NAME, f.ENGLISH_NAME, f.DESCR, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.PREFERENTIAL_PRICE, f.PRICE, f.PARENT_ID, f.CLASSIFY_ID, f.THEME_COLOR, f.FEATURES, f.AGING, f.AREA, f.SORT, f.ISENABLE, f.FORBIDDEN_REASON from BUS_CLASSIFY f where f.CLASSIFY_ID = ? 
+2020-10-10 15:20:13.237 [http-nio-8081-exec-9] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - ==> Parameters: 95dd8b39ec764af7bc2a6562e6c8df80(String)
+2020-10-10 15:20:13.239 [http-nio-8081-exec-9] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - <==      Total: 1
+2020-10-10 15:20:13.245 [http-nio-8081-exec-9] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==>  Preparing: select f.NAME, f.ENGLISH_NAME, f.DESCR, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.PREFERENTIAL_PRICE, f.PRICE, f.PARENT_ID, f.CLASSIFY_ID, f.THEME_COLOR, f.FEATURES, f.AGING, f.AREA, f.SORT, f.ISENABLE, f.FORBIDDEN_REASON from BUS_CLASSIFY f where f.ISDELETE = '0' AND f.PARENT_ID = ? order by f.SORT 
+2020-10-10 15:20:13.245 [http-nio-8081-exec-9] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==> Parameters: 95dd8b39ec764af7bc2a6562e6c8df80(String)
+2020-10-10 15:20:13.246 [http-nio-8081-exec-9] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - <==      Total: 3
+2020-10-10 15:20:13.254 [http-nio-8081-exec-9] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - ==>  Preparing: SELECT f.TIMEMANAGE_ID, f.TIMEQUANTUM, f.ABLE_NUM, ( SELECT count( 1 ) FROM bus_order o WHERE f.TIMEMANAGE_ID = o.TIMEMANAGE_ID AND o.STATUS < 2 AND DATE_FORMAT(o.CREATTIME,'%Y-%m-%d')=DATE_FORMAT(NOW(),'%Y-%m-%d')) AS count from BUS_TIMEMANAGE f where f.ISDELETE = '0' and f.ISENABLE = '1' and f.STARTTIME> DATE_FORMAT( NOW(), '%H:%i') order by STARTTIME 
+2020-10-10 15:20:13.254 [http-nio-8081-exec-9] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - ==> Parameters: 
+2020-10-10 15:20:13.259 [http-nio-8081-exec-9] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - <==      Total: 3
+2020-10-10 15:20:15.855 [http-nio-8081-exec-1] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - ==>  Preparing: select f.ID, f.NAME, f.APPID, f.ISAGREEPROTOCOL, f.USER_TYPE, bw.BALANCE, bp.POINTS from user_view f left join bus_wallet bw on bw.ISDELETE = '0' and bw.USER_ID = f.APPID and bw.USER_TYPE = f.USER_TYPE left join bus_points bp on bp.ISDELETE = '0' and bp.USER_ID = f.APPID where f.APPID = ? 
+2020-10-10 15:20:15.855 [http-nio-8081-exec-1] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - ==> Parameters: o-FSc5VtKiTgyyVDGa31Qa2a306c(String)
+2020-10-10 15:20:15.860 [http-nio-8081-exec-1] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - <==      Total: 1
+2020-10-10 15:20:15.863 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - ==>  Preparing: select f.NAME, f.PHONE, f.ADDRESS, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.USER_ID, f.TYPE, f.IS_DEFAULT, f.ADDRESS_ID, c.NAME AS USER_NAME from BUS_ADDRESS f left join BUS_CUSTOMER c on c.APPID=f.USER_ID where f.ISDELETE = '0' AND f.USER_ID = ? order by f.IS_DEFAULT, f.OPERATTIME desc 
+2020-10-10 15:20:15.863 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - ==> Parameters: o-FSc5VtKiTgyyVDGa31Qa2a306c(String)
+2020-10-10 15:20:15.868 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - <==      Total: 2
+2020-10-10 15:20:15.878 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - ==>  Preparing: select f.NAME, f.ENGLISH_NAME, f.DESCR, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.PREFERENTIAL_PRICE, f.PRICE, f.PARENT_ID, f.CLASSIFY_ID, f.THEME_COLOR, f.FEATURES, f.AGING, f.AREA, f.SORT, f.ISENABLE, f.FORBIDDEN_REASON from BUS_CLASSIFY f where f.CLASSIFY_ID = ? 
+2020-10-10 15:20:15.878 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - ==> Parameters: 33241bf0ada24166a0608e475a94e94b(String)
+2020-10-10 15:20:15.880 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - <==      Total: 1
+2020-10-10 15:20:15.893 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==>  Preparing: select f.NAME, f.ENGLISH_NAME, f.DESCR, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.PREFERENTIAL_PRICE, f.PRICE, f.PARENT_ID, f.CLASSIFY_ID, f.THEME_COLOR, f.FEATURES, f.AGING, f.AREA, f.SORT, f.ISENABLE, f.FORBIDDEN_REASON from BUS_CLASSIFY f where f.ISDELETE = '0' AND f.PARENT_ID = ? order by f.SORT 
+2020-10-10 15:20:15.894 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==> Parameters: 33241bf0ada24166a0608e475a94e94b(String)
+2020-10-10 15:20:15.895 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - <==      Total: 1
+2020-10-10 15:20:15.899 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - ==>  Preparing: SELECT f.TIMEMANAGE_ID, f.TIMEQUANTUM, f.ABLE_NUM, ( SELECT count( 1 ) FROM bus_order o WHERE f.TIMEMANAGE_ID = o.TIMEMANAGE_ID AND o.STATUS < 2 AND DATE_FORMAT(o.CREATTIME,'%Y-%m-%d')=DATE_FORMAT(NOW(),'%Y-%m-%d')) AS count from BUS_TIMEMANAGE f where f.ISDELETE = '0' and f.ISENABLE = '1' and f.STARTTIME> DATE_FORMAT( NOW(), '%H:%i') order by STARTTIME 
+2020-10-10 15:20:15.900 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - ==> Parameters: 
+2020-10-10 15:20:15.902 [http-nio-8081-exec-3] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - <==      Total: 3
+2020-10-10 15:20:19.200 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - ==>  Preparing: select count(0) from (select f.USER_ID, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.ADDRESS_ID, f.CLASSIFY_ID, f.TIMEMANAGE_ID, f.ESTIMATE, f.DESCR, f.STATUS, f.CODE, f.TRANSACTION_NUMBER, f.DISTRIBUTION_USER_ID, f.DISTRIBUTION_TIME, f.DISTRIBUTION_DESCR, f.IS_COUPON, f.IMG_URLS, f.ORDER_ID, cu.NAME AS USER_NAME, a.NAME as ADDRESS_NAME, a.ADDRESS as ADDRESS, a.PHONE as ADDRESS_PHONE, u.NAME as DISTRIBUTION_USER_NAME, c.NAME as CLASSIFY_NAME, f.TIMEQUANTUM, f.PRICE, f.PICKUP_IMG_URLS, f.RETURN_IMG_URLS, f.CHARGEBACK_TIME, f.PROCESSING_TIME, f.COMPLETION_TIME, f.CLASSIFY_CHILD_ID, f.CHARGEBACK_DESCR, f.CHARGEBACK_NUMBER from BUS_ORDER f left join BUS_ADDRESS a on a.ADDRESS_ID=f.ADDRESS_ID left join SYS_USER u on u.USER_ID=f.DISTRIBUTION_USER_ID left join BUS_CLASSIFY c on c.CLASSIFY_ID = f.CLASSIFY_ID left join BUS_CUSTOMER cu on cu.APPID=f.USER_ID where f.ISDELETE = '0' AND f.USER_ID = ? AND ( f.STATUS < 2 or f.STATUS = 5 ) order by f.CREATTIME desc) tmp_count 
+2020-10-10 15:20:19.202 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - ==> Parameters: o-FSc5VtKiTgyyVDGa31Qa2a306c(String)
+2020-10-10 15:20:19.205 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - ==>  Preparing: select f.USER_ID, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.ADDRESS_ID, f.CLASSIFY_ID, f.TIMEMANAGE_ID, f.ESTIMATE, f.DESCR, f.STATUS, f.CODE, f.TRANSACTION_NUMBER, f.DISTRIBUTION_USER_ID, f.DISTRIBUTION_TIME, f.DISTRIBUTION_DESCR, f.IS_COUPON, f.IMG_URLS, f.ORDER_ID, cu.NAME AS USER_NAME, a.NAME as ADDRESS_NAME, a.ADDRESS as ADDRESS, a.PHONE as ADDRESS_PHONE, u.NAME as DISTRIBUTION_USER_NAME, c.NAME as CLASSIFY_NAME, f.TIMEQUANTUM, f.PRICE, f.PICKUP_IMG_URLS, f.RETURN_IMG_URLS, f.CHARGEBACK_TIME, f.PROCESSING_TIME, f.COMPLETION_TIME, f.CLASSIFY_CHILD_ID, f.CHARGEBACK_DESCR, f.CHARGEBACK_NUMBER from BUS_ORDER f left join BUS_ADDRESS a on a.ADDRESS_ID=f.ADDRESS_ID left join SYS_USER u on u.USER_ID=f.DISTRIBUTION_USER_ID left join BUS_CLASSIFY c on c.CLASSIFY_ID = f.CLASSIFY_ID left join BUS_CUSTOMER cu on cu.APPID=f.USER_ID where f.ISDELETE = '0' AND f.USER_ID = ? AND ( f.STATUS < 2 or f.STATUS = 5 ) order by f.CREATTIME desc limit 0,10 
+2020-10-10 15:20:19.206 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - ==> Parameters: o-FSc5VtKiTgyyVDGa31Qa2a306c(String)
+2020-10-10 15:20:19.211 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - <==      Total: 1
+2020-10-10 15:20:20.426 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - ==>  Preparing: select f.ID, f.NAME, f.APPID, f.ISAGREEPROTOCOL, f.USER_TYPE, bw.BALANCE, bp.POINTS from user_view f left join bus_wallet bw on bw.ISDELETE = '0' and bw.USER_ID = f.APPID and bw.USER_TYPE = f.USER_TYPE left join bus_points bp on bp.ISDELETE = '0' and bp.USER_ID = f.APPID where f.APPID = ? and f.USER_TYPE = ? 
+2020-10-10 15:20:20.426 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - ==> Parameters: o-FSc5VtKiTgyyVDGa31Qa2a306c(String), 1(String)
+2020-10-10 15:20:20.428 [http-nio-8081-exec-2] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - <==      Total: 1
+2020-10-10 15:20:21.780 [http-nio-8081-exec-6] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - ==>  Preparing: select count(0) from (select f.USER_ID, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.ADDRESS_ID, f.CLASSIFY_ID, f.TIMEMANAGE_ID, f.ESTIMATE, f.DESCR, f.STATUS, f.CODE, f.TRANSACTION_NUMBER, f.DISTRIBUTION_USER_ID, f.DISTRIBUTION_TIME, f.DISTRIBUTION_DESCR, f.IS_COUPON, f.IMG_URLS, f.ORDER_ID, cu.NAME AS USER_NAME, a.NAME as ADDRESS_NAME, a.ADDRESS as ADDRESS, a.PHONE as ADDRESS_PHONE, u.NAME as DISTRIBUTION_USER_NAME, c.NAME as CLASSIFY_NAME, f.TIMEQUANTUM, f.PRICE, f.PICKUP_IMG_URLS, f.RETURN_IMG_URLS, f.CHARGEBACK_TIME, f.PROCESSING_TIME, f.COMPLETION_TIME, f.CLASSIFY_CHILD_ID, f.CHARGEBACK_DESCR, f.CHARGEBACK_NUMBER from BUS_ORDER f left join BUS_ADDRESS a on a.ADDRESS_ID=f.ADDRESS_ID left join SYS_USER u on u.USER_ID=f.DISTRIBUTION_USER_ID left join BUS_CLASSIFY c on c.CLASSIFY_ID = f.CLASSIFY_ID left join BUS_CUSTOMER cu on cu.APPID=f.USER_ID where f.ISDELETE = '0' AND f.USER_ID = ? AND ( f.STATUS < 2 or f.STATUS = 5 ) order by f.CREATTIME desc) tmp_count 
+2020-10-10 15:20:21.781 [http-nio-8081-exec-6] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - ==> Parameters: o-FSc5VtKiTgyyVDGa31Qa2a306c(String)
+2020-10-10 15:20:21.784 [http-nio-8081-exec-6] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - ==>  Preparing: select f.USER_ID, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.ADDRESS_ID, f.CLASSIFY_ID, f.TIMEMANAGE_ID, f.ESTIMATE, f.DESCR, f.STATUS, f.CODE, f.TRANSACTION_NUMBER, f.DISTRIBUTION_USER_ID, f.DISTRIBUTION_TIME, f.DISTRIBUTION_DESCR, f.IS_COUPON, f.IMG_URLS, f.ORDER_ID, cu.NAME AS USER_NAME, a.NAME as ADDRESS_NAME, a.ADDRESS as ADDRESS, a.PHONE as ADDRESS_PHONE, u.NAME as DISTRIBUTION_USER_NAME, c.NAME as CLASSIFY_NAME, f.TIMEQUANTUM, f.PRICE, f.PICKUP_IMG_URLS, f.RETURN_IMG_URLS, f.CHARGEBACK_TIME, f.PROCESSING_TIME, f.COMPLETION_TIME, f.CLASSIFY_CHILD_ID, f.CHARGEBACK_DESCR, f.CHARGEBACK_NUMBER from BUS_ORDER f left join BUS_ADDRESS a on a.ADDRESS_ID=f.ADDRESS_ID left join SYS_USER u on u.USER_ID=f.DISTRIBUTION_USER_ID left join BUS_CLASSIFY c on c.CLASSIFY_ID = f.CLASSIFY_ID left join BUS_CUSTOMER cu on cu.APPID=f.USER_ID where f.ISDELETE = '0' AND f.USER_ID = ? AND ( f.STATUS < 2 or f.STATUS = 5 ) order by f.CREATTIME desc limit 0,10 
+2020-10-10 15:20:21.785 [http-nio-8081-exec-6] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - ==> Parameters: o-FSc5VtKiTgyyVDGa31Qa2a306c(String)
+2020-10-10 15:20:21.787 [http-nio-8081-exec-6] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - <==      Total: 1
+2020-10-10 15:20:22.562 [http-nio-8081-exec-4] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==>  Preparing: select f.NAME, f.ENGLISH_NAME, f.DESCR, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.PREFERENTIAL_PRICE, f.PRICE, f.PARENT_ID, f.CLASSIFY_ID, f.THEME_COLOR, f.FEATURES, f.AGING, f.AREA, f.SORT, f.ISENABLE, f.FORBIDDEN_REASON from BUS_CLASSIFY f where f.ISDELETE = '0' AND f.PARENT_ID = ? order by f.SORT 
+2020-10-10 15:20:22.562 [http-nio-8081-exec-4] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==> Parameters: -1(Integer)
+2020-10-10 15:20:22.578 [http-nio-8081-exec-4] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - <==      Total: 3
+2020-10-10 15:20:23.860 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - ==>  Preparing: select f.NAME, f.PHONE, f.ADDRESS, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.USER_ID, f.TYPE, f.IS_DEFAULT, f.ADDRESS_ID, c.NAME AS USER_NAME from BUS_ADDRESS f left join BUS_CUSTOMER c on c.APPID=f.USER_ID where f.ISDELETE = '0' AND f.USER_ID = ? order by f.IS_DEFAULT, f.OPERATTIME desc 
+2020-10-10 15:20:23.861 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - ==> Parameters: o-FSc5VtKiTgyyVDGa31Qa2a306c(String)
+2020-10-10 15:20:23.861 [http-nio-8081-exec-7] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - ==>  Preparing: select f.ID, f.NAME, f.APPID, f.ISAGREEPROTOCOL, f.USER_TYPE, bw.BALANCE, bp.POINTS from user_view f left join bus_wallet bw on bw.ISDELETE = '0' and bw.USER_ID = f.APPID and bw.USER_TYPE = f.USER_TYPE left join bus_points bp on bp.ISDELETE = '0' and bp.USER_ID = f.APPID where f.APPID = ? 
+2020-10-10 15:20:23.861 [http-nio-8081-exec-7] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - ==> Parameters: o-FSc5VtKiTgyyVDGa31Qa2a306c(String)
+2020-10-10 15:20:23.863 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - <==      Total: 2
+2020-10-10 15:20:23.865 [http-nio-8081-exec-7] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - <==      Total: 1
+2020-10-10 15:20:23.869 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - ==>  Preparing: select f.NAME, f.ENGLISH_NAME, f.DESCR, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.PREFERENTIAL_PRICE, f.PRICE, f.PARENT_ID, f.CLASSIFY_ID, f.THEME_COLOR, f.FEATURES, f.AGING, f.AREA, f.SORT, f.ISENABLE, f.FORBIDDEN_REASON from BUS_CLASSIFY f where f.CLASSIFY_ID = ? 
+2020-10-10 15:20:23.869 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - ==> Parameters: a52517e5364c4f04ac32a0fe84183d09(String)
+2020-10-10 15:20:23.871 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - <==      Total: 1
+2020-10-10 15:20:23.876 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==>  Preparing: select f.NAME, f.ENGLISH_NAME, f.DESCR, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.PREFERENTIAL_PRICE, f.PRICE, f.PARENT_ID, f.CLASSIFY_ID, f.THEME_COLOR, f.FEATURES, f.AGING, f.AREA, f.SORT, f.ISENABLE, f.FORBIDDEN_REASON from BUS_CLASSIFY f where f.ISDELETE = '0' AND f.PARENT_ID = ? order by f.SORT 
+2020-10-10 15:20:23.876 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==> Parameters: a52517e5364c4f04ac32a0fe84183d09(String)
+2020-10-10 15:20:23.878 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - <==      Total: 1
+2020-10-10 15:20:23.884 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - ==>  Preparing: SELECT f.TIMEMANAGE_ID, f.TIMEQUANTUM, f.ABLE_NUM, ( SELECT count( 1 ) FROM bus_order o WHERE f.TIMEMANAGE_ID = o.TIMEMANAGE_ID AND o.STATUS < 2 AND DATE_FORMAT(o.CREATTIME,'%Y-%m-%d')=DATE_FORMAT(NOW(),'%Y-%m-%d')) AS count from BUS_TIMEMANAGE f where f.ISDELETE = '0' and f.ISENABLE = '1' and f.STARTTIME> DATE_FORMAT( NOW(), '%H:%i') order by STARTTIME 
+2020-10-10 15:20:23.884 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - ==> Parameters: 
+2020-10-10 15:20:23.886 [http-nio-8081-exec-8] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - <==      Total: 3
+2020-10-10 15:20:26.050 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - ==>  Preparing: select f.NAME, f.PHONE, f.ADDRESS, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.USER_ID, f.TYPE, f.IS_DEFAULT, f.ADDRESS_ID, c.NAME AS USER_NAME from BUS_ADDRESS f left join BUS_CUSTOMER c on c.APPID=f.USER_ID where f.ISDELETE = '0' order by f.IS_DEFAULT, f.OPERATTIME desc 
+2020-10-10 15:20:26.050 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - ==> Parameters: 
+2020-10-10 15:20:26.052 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - <==      Total: 18
+2020-10-10 15:20:26.058 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - ==>  Preparing: select f.NAME, f.ENGLISH_NAME, f.DESCR, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.PREFERENTIAL_PRICE, f.PRICE, f.PARENT_ID, f.CLASSIFY_ID, f.THEME_COLOR, f.FEATURES, f.AGING, f.AREA, f.SORT, f.ISENABLE, f.FORBIDDEN_REASON from BUS_CLASSIFY f where f.CLASSIFY_ID = ? 
+2020-10-10 15:20:26.058 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - ==> Parameters: 95dd8b39ec764af7bc2a6562e6c8df80(String)
+2020-10-10 15:20:26.060 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - <==      Total: 1
+2020-10-10 15:20:26.064 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==>  Preparing: select f.NAME, f.ENGLISH_NAME, f.DESCR, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.PREFERENTIAL_PRICE, f.PRICE, f.PARENT_ID, f.CLASSIFY_ID, f.THEME_COLOR, f.FEATURES, f.AGING, f.AREA, f.SORT, f.ISENABLE, f.FORBIDDEN_REASON from BUS_CLASSIFY f where f.ISDELETE = '0' AND f.PARENT_ID = ? order by f.SORT 
+2020-10-10 15:20:26.064 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==> Parameters: 95dd8b39ec764af7bc2a6562e6c8df80(String)
+2020-10-10 15:20:26.066 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - <==      Total: 3
+2020-10-10 15:20:26.076 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - ==>  Preparing: SELECT f.TIMEMANAGE_ID, f.TIMEQUANTUM, f.ABLE_NUM, ( SELECT count( 1 ) FROM bus_order o WHERE f.TIMEMANAGE_ID = o.TIMEMANAGE_ID AND o.STATUS < 2 AND DATE_FORMAT(o.CREATTIME,'%Y-%m-%d')=DATE_FORMAT(NOW(),'%Y-%m-%d')) AS count from BUS_TIMEMANAGE f where f.ISDELETE = '0' and f.ISENABLE = '1' and f.STARTTIME> DATE_FORMAT( NOW(), '%H:%i') order by STARTTIME 
+2020-10-10 15:20:26.077 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - ==> Parameters: 
+2020-10-10 15:20:26.078 [http-nio-8081-exec-10] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - <==      Total: 3
+2020-10-10 15:20:28.463 [http-nio-8081-exec-9] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - ==>  Preparing: select f.ID, f.NAME, f.APPID, f.ISAGREEPROTOCOL, f.USER_TYPE, bw.BALANCE, bp.POINTS from user_view f left join bus_wallet bw on bw.ISDELETE = '0' and bw.USER_ID = f.APPID and bw.USER_TYPE = f.USER_TYPE left join bus_points bp on bp.ISDELETE = '0' and bp.USER_ID = f.APPID where f.APPID = ? 
+2020-10-10 15:20:28.464 [http-nio-8081-exec-9] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - ==> Parameters: o-FSc5VtKiTgyyVDGa31Qa2a306c(String)
+2020-10-10 15:20:28.464 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - ==>  Preparing: select f.NAME, f.PHONE, f.ADDRESS, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.USER_ID, f.TYPE, f.IS_DEFAULT, f.ADDRESS_ID, c.NAME AS USER_NAME from BUS_ADDRESS f left join BUS_CUSTOMER c on c.APPID=f.USER_ID where f.ISDELETE = '0' AND f.USER_ID = ? order by f.IS_DEFAULT, f.OPERATTIME desc 
+2020-10-10 15:20:28.464 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - ==> Parameters: o-FSc5VtKiTgyyVDGa31Qa2a306c(String)
+2020-10-10 15:20:28.466 [http-nio-8081-exec-9] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - <==      Total: 1
+2020-10-10 15:20:28.466 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - <==      Total: 2
+2020-10-10 15:20:28.471 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - ==>  Preparing: select f.NAME, f.ENGLISH_NAME, f.DESCR, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.PREFERENTIAL_PRICE, f.PRICE, f.PARENT_ID, f.CLASSIFY_ID, f.THEME_COLOR, f.FEATURES, f.AGING, f.AREA, f.SORT, f.ISENABLE, f.FORBIDDEN_REASON from BUS_CLASSIFY f where f.CLASSIFY_ID = ? 
+2020-10-10 15:20:28.471 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - ==> Parameters: 33241bf0ada24166a0608e475a94e94b(String)
+2020-10-10 15:20:28.473 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - <==      Total: 1
+2020-10-10 15:20:28.478 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==>  Preparing: select f.NAME, f.ENGLISH_NAME, f.DESCR, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.PREFERENTIAL_PRICE, f.PRICE, f.PARENT_ID, f.CLASSIFY_ID, f.THEME_COLOR, f.FEATURES, f.AGING, f.AREA, f.SORT, f.ISENABLE, f.FORBIDDEN_REASON from BUS_CLASSIFY f where f.ISDELETE = '0' AND f.PARENT_ID = ? order by f.SORT 
+2020-10-10 15:20:28.478 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==> Parameters: 33241bf0ada24166a0608e475a94e94b(String)
+2020-10-10 15:20:28.482 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - <==      Total: 1
+2020-10-10 15:20:28.487 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - ==>  Preparing: SELECT f.TIMEMANAGE_ID, f.TIMEQUANTUM, f.ABLE_NUM, ( SELECT count( 1 ) FROM bus_order o WHERE f.TIMEMANAGE_ID = o.TIMEMANAGE_ID AND o.STATUS < 2 AND DATE_FORMAT(o.CREATTIME,'%Y-%m-%d')=DATE_FORMAT(NOW(),'%Y-%m-%d')) AS count from BUS_TIMEMANAGE f where f.ISDELETE = '0' and f.ISENABLE = '1' and f.STARTTIME> DATE_FORMAT( NOW(), '%H:%i') order by STARTTIME 
+2020-10-10 15:20:28.487 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - ==> Parameters: 
+2020-10-10 15:20:28.489 [http-nio-8081-exec-1] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - <==      Total: 3
+2020-10-10 15:20:31.671 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - ==>  Preparing: select f.ID, f.NAME, f.APPID, f.ISAGREEPROTOCOL, f.USER_TYPE, bw.BALANCE, bp.POINTS from user_view f left join bus_wallet bw on bw.ISDELETE = '0' and bw.USER_ID = f.APPID and bw.USER_TYPE = f.USER_TYPE left join bus_points bp on bp.ISDELETE = '0' and bp.USER_ID = f.APPID where f.APPID = ? 
+2020-10-10 15:20:31.672 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - ==> Parameters: o-FSc5VtKiTgyyVDGa31Qa2a306c(String)
+2020-10-10 15:20:31.673 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - ==>  Preparing: select f.NAME, f.PHONE, f.ADDRESS, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.USER_ID, f.TYPE, f.IS_DEFAULT, f.ADDRESS_ID, c.NAME AS USER_NAME from BUS_ADDRESS f left join BUS_CUSTOMER c on c.APPID=f.USER_ID where f.ISDELETE = '0' AND f.USER_ID = ? order by f.IS_DEFAULT, f.OPERATTIME desc 
+2020-10-10 15:20:31.674 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.UsersMapper.findAppUserById - <==      Total: 1
+2020-10-10 15:20:31.674 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - ==> Parameters: o-FSc5VtKiTgyyVDGa31Qa2a306c(String)
+2020-10-10 15:20:31.675 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.AddressMapper.listAll - <==      Total: 2
+2020-10-10 15:20:31.680 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - ==>  Preparing: select f.NAME, f.ENGLISH_NAME, f.DESCR, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.PREFERENTIAL_PRICE, f.PRICE, f.PARENT_ID, f.CLASSIFY_ID, f.THEME_COLOR, f.FEATURES, f.AGING, f.AREA, f.SORT, f.ISENABLE, f.FORBIDDEN_REASON from BUS_CLASSIFY f where f.CLASSIFY_ID = ? 
+2020-10-10 15:20:31.681 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - ==> Parameters: a52517e5364c4f04ac32a0fe84183d09(String)
+2020-10-10 15:20:31.683 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.findById - <==      Total: 1
+2020-10-10 15:20:31.689 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==>  Preparing: select f.NAME, f.ENGLISH_NAME, f.DESCR, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.PREFERENTIAL_PRICE, f.PRICE, f.PARENT_ID, f.CLASSIFY_ID, f.THEME_COLOR, f.FEATURES, f.AGING, f.AREA, f.SORT, f.ISENABLE, f.FORBIDDEN_REASON from BUS_CLASSIFY f where f.ISDELETE = '0' AND f.PARENT_ID = ? order by f.SORT 
+2020-10-10 15:20:31.689 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - ==> Parameters: a52517e5364c4f04ac32a0fe84183d09(String)
+2020-10-10 15:20:31.691 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.ClassifyMapper.listAll - <==      Total: 1
+2020-10-10 15:20:31.700 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - ==>  Preparing: SELECT f.TIMEMANAGE_ID, f.TIMEQUANTUM, f.ABLE_NUM, ( SELECT count( 1 ) FROM bus_order o WHERE f.TIMEMANAGE_ID = o.TIMEMANAGE_ID AND o.STATUS < 2 AND DATE_FORMAT(o.CREATTIME,'%Y-%m-%d')=DATE_FORMAT(NOW(),'%Y-%m-%d')) AS count from BUS_TIMEMANAGE f where f.ISDELETE = '0' and f.ISENABLE = '1' and f.STARTTIME> DATE_FORMAT( NOW(), '%H:%i') order by STARTTIME 
+2020-10-10 15:20:31.700 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - ==> Parameters: 
+2020-10-10 15:20:31.702 [http-nio-8081-exec-5] DEBUG c.z.mapper.datasource.bus.TimeManageMapper.listAll - <==      Total: 3

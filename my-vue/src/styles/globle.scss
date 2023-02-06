@@ -1,0 +1,245 @@
+.g-screen {
+  border: 1px solid #ccc;
+  font-size: 14px;
+
+  .g-condition {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 8px;
+
+    .lable {
+      color: #666;
+    }
+
+    .marks {
+      ul {
+        li {
+          display: inline-block;
+          border: 1px solid #f70;
+          background-color: #fff;
+          white-space: nowrap;
+          height: 20px;
+          line-height: 18px;
+          color: #f70;
+          cursor: pointer;
+          margin-right: 5px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &:hover {
+            color: #f70;
+          }
+
+          span {
+            display: inline-block;
+            padding: 0px 6px;
+
+          }
+
+          i {
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+            vertical-align: top;
+            background: url(../assets/images/icon-closed.png) no-repeat;
+            background-position: -39px 0px;
+
+            &:hover {
+              background-color: #f70;
+              background-position: 0px 0px;
+
+            }
+          }
+        }
+      }
+    }
+
+    .clear {
+      border-left: 1px dashed #666;
+      margin-left: 12px;
+      padding-left: 10px;
+      cursor: pointer;
+      color: #3B5998;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+  }
+
+  .g-group {
+    .g-row {
+      padding: 12px;
+      display: flex;
+      align-items: flex-start;
+      border-bottom: 1px dashed #ccc;
+
+      //&:last-child {
+      //  border-bottom: none;
+      //}
+
+      .lable {
+        color: #666;
+      }
+
+      .content {
+        flex: 1;
+
+        ul {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+
+          li {
+            color: #3B5998;
+            cursor: pointer;
+            height: 23px;
+            line-height: 24px;
+            padding: 0 7px;
+            white-space: nowrap;
+
+            &.actived {
+              background-color: #3B5998;
+              color: #fff;
+            }
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      .checkbox {
+        flex: 1;
+
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+
+          li {
+            width: 140px;
+            padding-bottom: 8px;
+            color: #3b5998;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.g-result {
+  cursor: pointer;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  padding: 0 12px;
+  font-size: 14px;
+  line-height: 22px;
+
+
+  .result-item {
+    padding: 12px 8px;
+    border-bottom: 1px dashed #ccc;
+
+    &:hover {
+      color: #3B5998;
+      text-decoration: underline;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .result-left {
+      display: inline-block;
+    }
+
+    .result-right {
+      display: inline-block;
+      position: absolute;
+      left: 600px;
+    }
+  }
+}
+
+.g-bottom {
+  margin-top: 15px;
+  text-align: center;
+
+  span {
+    color: #3B5998;
+    cursor: pointer;
+    height: 23px;
+    line-height: 24px;
+    padding: 0 7px;
+    white-space: nowrap;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.g-tools {
+  margin-top: 15px;
+
+  .g-total {
+    display: inline-block;
+    color: #9195a3;
+    line-height: 39px;
+    font-size: 13px;
+  }
+
+  .g-button {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+  }
+}
+
+.g-table {
+  border-collapse: collapse;
+  font-size: 14px;
+  width: 100%;
+
+  .lable {
+    width: 140px;
+    text-align: right;
+    background-color: #f8f8f8;
+    font-weight: bold;
+    color: #000;
+  }
+
+  td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    color: #636363;
+
+    .table-col {
+      border-collapse: collapse;
+      width: calc(100% + 2px);
+      margin-top: -1px;
+      margin-left: -1px;
+      margin-bottom: -1px;
+
+      th {
+        background-color: #f8f8f8;
+        font-weight: bold;
+        color: #000;
+        border: 1px solid #ccc;
+        padding: 4px 10px;
+      }
+
+      td {
+        border: 1px solid #ccc;
+        padding: 4px 10px;
+        color: #636363;
+      }
+    }
+  }
+}

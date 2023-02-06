@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北戴河安全管理系统</title>
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <!-- Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="QDKJCHINA" />
+
+    <link rel="icon" href="../../../assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../../../assets/plugins/animation/css/animate.min.css">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    
+    <!-- 日期插件 -->
+    <link rel="stylesheet" href="../../../assets/plugins/material-datetimepicker/css/bootstrap-material-datetimepicker.css">
+    
+    <!-- select插件 -->
+    <link rel="stylesheet" href="../../../assets/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../../../assets/plugins/multi-select/css/multi-select.css">
+    
+    <!-- vue -->
+	<script src="../../../assets/js-vue/vue.js"></script>
+    <!--全局配置-->
+    <script src="../../../assets/js-v/config.js"></script>
+
+</head>
+
+<body style="background-color: white">
+    
+    <!-- [加载状态 ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!-- [ 加载状态  ] End -->
+
+    <!-- [ 主内容区 ] start -->
+        <div class="pcoded-wrapper" id="app">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+					
+								<div style="width: 100%;">
+									<div id="showform">
+									    <div class="card-theme-body">
+														                <div class="form-group input-group-sm">
+												<label class="form-label">商品名称</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="GOODSNAME" id="GOODSNAME" v-model="pd.GOODSNAME" maxlength="255" placeholder="这里输入商品名称" title="商品名称">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">商品类型</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="GOODSTYPE" id="GOODSTYPE" v-model="pd.GOODSTYPE" maxlength="255" placeholder="这里输入商品类型" title="商品类型">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">商品金额</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="GOODSAMOUNT" id="GOODSAMOUNT" v-model="pd.GOODSAMOUNT" maxlength="255" placeholder="这里输入商品金额" title="商品金额">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">活动金额</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="AMOUNTACTIVITY" id="AMOUNTACTIVITY" v-model="pd.AMOUNTACTIVITY" maxlength="255" placeholder="这里输入活动金额" title="活动金额">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">内容</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="GOODSCONTENT" id="GOODSCONTENT" v-model="pd.GOODSCONTENT" maxlength="255" placeholder="这里输入内容" title="内容">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">商品图片</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="GOODSIMG" id="GOODSIMG" v-model="pd.GOODSIMG" maxlength="255" placeholder="这里输入商品图片" title="商品图片">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">售后服务</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="AFTERSERVICE" id="AFTERSERVICE" v-model="pd.AFTERSERVICE" maxlength="255" placeholder="这里输入售后服务" title="售后服务">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">服务保障</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="SERVICEGUARANTEE" id="SERVICEGUARANTEE" v-model="pd.SERVICEGUARANTEE" maxlength="255" placeholder="这里输入服务保障" title="服务保障">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">服务热线</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="HOTLINE" id="HOTLINE" v-model="pd.HOTLINE" maxlength="255" placeholder="这里输入服务热线" title="服务热线">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">订购须知</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="ORDERINGINFORMATION" id="ORDERINGINFORMATION" v-model="pd.ORDERINGINFORMATION" maxlength="255" placeholder="这里输入订购须知" title="订购须知">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">商品详情</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="GOODSDETAILS" id="GOODSDETAILS" v-model="pd.GOODSDETAILS" maxlength="255" placeholder="这里输入商品详情" title="商品详情">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">是否上架1，是2，否</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="ISUPPERSHELF" id="ISUPPERSHELF" v-model="pd.ISUPPERSHELF" maxlength="255" placeholder="这里输入是否上架1，是2，否" title="是否上架1，是2，否">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">商品简介</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="GOODSSYNOPSIS" id="GOODSSYNOPSIS" v-model="pd.GOODSSYNOPSIS" maxlength="255" placeholder="这里输入商品简介" title="商品简介">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">已售数量</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="QUANTITYSOLD" id="QUANTITYSOLD" v-model="pd.QUANTITYSOLD" maxlength="255" placeholder="这里输入已售数量" title="已售数量">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">是否首页展示</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="ISSHOW" id="ISSHOW" v-model="pd.ISSHOW" maxlength="255" placeholder="这里输入是否首页展示" title="是否首页展示">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">服务声明</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="SERVICESTATEMENT" id="SERVICESTATEMENT" v-model="pd.SERVICESTATEMENT" maxlength="255" placeholder="这里输入服务声明" title="服务声明">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">库存数量</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="INVENTORYQUANTITY" id="INVENTORYQUANTITY" v-model="pd.INVENTORYQUANTITY" maxlength="255" placeholder="这里输入库存数量" title="库存数量">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">是否删除</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="ISDELETE" id="ISDELETE" v-model="pd.ISDELETE" maxlength="255" placeholder="这里输入是否删除" title="是否删除">
+		                                        </div>
+											</div>
+							                <div class="form-group input-group-sm">
+												<label class="form-label">操作人</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control" ref="OPUSER" id="OPUSER" v-model="pd.OPUSER" maxlength="255" placeholder="这里输入操作人" title="操作人">
+		                                        </div>
+											</div>
+											<div class="form-group input-group-sm">
+												<label class="form-label">操作日期</label>
+		                                        <div class="input-block">
+		                                            <input type="text" class="form-control date" ref="OPDATE" id="OPDATE" maxlength="32" placeholder="这里输入操作日期" title="操作日期">
+		                                        </div>
+											</div>
+							            </div>
+							            <div class="input-group" style="margin-top:10px;background-color: white" >
+							            	<span style="width: 100%;text-align: center;">
+							            		<a class="btn btn-primary btn-sm" style="margin-right: 10px;" v-on:click="save">保存</a>
+							            		<a class="btn btn-secondary btn-sm" onclick="top.Dialog.close()">取消</a>
+							            	</span>
+							            </div>
+							       </div>
+						           <!-- [加载状态 ] start -->
+								    <div id="jiazai" style="display:none;margin-top:50px;">
+								    	<div class="d-flex justify-content-center">
+	                                        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+								    <!-- [ 加载状态  ] End -->
+								</div>
+	    
+                            </div>
+                            <!-- [ Main Content ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- [ 主内容区 ] end -->
+    
+<script type="text/javascript" src="../../../assets/js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="../../../assets/js/pre-loader.js"></script>
+<script src="../../../assets/plugins/sweetalert/js/sweetalert.min.js"></script>
+
+<!-- 日期插件 -->
+<script src="../../../assets/js/pages/moment-with-locales.min.js"></script>
+<script src="../../../assets/plugins/material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+<script src="../../../assets/js/pages/form-picker-custom.js"></script>
+
+<!-- select插件 -->
+<script src="../../../assets/plugins/select2/js/select2.full.min.js"></script>
+<script src="../../../assets/plugins/multi-select/js/jquery.quicksearch.js"></script>
+<script src="../../../assets/plugins/multi-select/js/jquery.multi-select.js"></script>
+<script src="../../../assets/js/pages/form-select-custom.js"></script>
+
+<!-- 表单验证提示 -->
+<script src="../../../assets/js/jquery.tips.js"></script>
+
+<script type="text/javascript">
+
+var vm = new Vue({
+	el: '#app',
+	
+	data:{
+		GOODSINFO_ID: '',	//主键ID
+		pd: [],						//存放字段参数
+		msg:'add'
+    },
+	
+	methods: {
+		
+        //初始执行
+        init() {
+        	var FID = this.getUrlKey('FID');	//当接收过来的FID不为null时,表示此页面是修改进来的
+        	if(null != FID){
+        		this.msg = 'edit';
+        		this.GOODSINFO_ID = FID;
+        		this.getData();
+        	}
+        	setTimeout(function(){
+        		vm.getDict();
+            },200);
+        },
+        
+        //去保存
+    	save: function (){
+    		
+			if(this.pd.GOODSNAME == '' || this.pd.GOODSNAME == undefined){
+				$("#GOODSNAME").tips({
+					side:3,
+		            msg:'请输入商品名称',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.GOODSNAME = '';
+				this.$refs.GOODSNAME.focus();
+			return false;
+			}
+			if(this.pd.GOODSTYPE == '' || this.pd.GOODSTYPE == undefined){
+				$("#GOODSTYPE").tips({
+					side:3,
+		            msg:'请输入商品类型',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.GOODSTYPE = '';
+				this.$refs.GOODSTYPE.focus();
+			return false;
+			}
+			if(this.pd.GOODSAMOUNT == '' || this.pd.GOODSAMOUNT == undefined){
+				$("#GOODSAMOUNT").tips({
+					side:3,
+		            msg:'请输入商品金额',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.GOODSAMOUNT = '';
+				this.$refs.GOODSAMOUNT.focus();
+			return false;
+			}
+			if(this.pd.AMOUNTACTIVITY == '' || this.pd.AMOUNTACTIVITY == undefined){
+				$("#AMOUNTACTIVITY").tips({
+					side:3,
+		            msg:'请输入活动金额',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.AMOUNTACTIVITY = '';
+				this.$refs.AMOUNTACTIVITY.focus();
+			return false;
+			}
+			if(this.pd.GOODSCONTENT == '' || this.pd.GOODSCONTENT == undefined){
+				$("#GOODSCONTENT").tips({
+					side:3,
+		            msg:'请输入内容',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.GOODSCONTENT = '';
+				this.$refs.GOODSCONTENT.focus();
+			return false;
+			}
+			if(this.pd.GOODSIMG == '' || this.pd.GOODSIMG == undefined){
+				$("#GOODSIMG").tips({
+					side:3,
+		            msg:'请输入商品图片',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.GOODSIMG = '';
+				this.$refs.GOODSIMG.focus();
+			return false;
+			}
+			if(this.pd.AFTERSERVICE == '' || this.pd.AFTERSERVICE == undefined){
+				$("#AFTERSERVICE").tips({
+					side:3,
+		            msg:'请输入售后服务',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.AFTERSERVICE = '';
+				this.$refs.AFTERSERVICE.focus();
+			return false;
+			}
+			if(this.pd.SERVICEGUARANTEE == '' || this.pd.SERVICEGUARANTEE == undefined){
+				$("#SERVICEGUARANTEE").tips({
+					side:3,
+		            msg:'请输入服务保障',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.SERVICEGUARANTEE = '';
+				this.$refs.SERVICEGUARANTEE.focus();
+			return false;
+			}
+			if(this.pd.HOTLINE == '' || this.pd.HOTLINE == undefined){
+				$("#HOTLINE").tips({
+					side:3,
+		            msg:'请输入服务热线',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.HOTLINE = '';
+				this.$refs.HOTLINE.focus();
+			return false;
+			}
+			if(this.pd.ORDERINGINFORMATION == '' || this.pd.ORDERINGINFORMATION == undefined){
+				$("#ORDERINGINFORMATION").tips({
+					side:3,
+		            msg:'请输入订购须知',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.ORDERINGINFORMATION = '';
+				this.$refs.ORDERINGINFORMATION.focus();
+			return false;
+			}
+			if(this.pd.GOODSDETAILS == '' || this.pd.GOODSDETAILS == undefined){
+				$("#GOODSDETAILS").tips({
+					side:3,
+		            msg:'请输入商品详情',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.GOODSDETAILS = '';
+				this.$refs.GOODSDETAILS.focus();
+			return false;
+			}
+			if(this.pd.ISUPPERSHELF == '' || this.pd.ISUPPERSHELF == undefined){
+				$("#ISUPPERSHELF").tips({
+					side:3,
+		            msg:'请输入是否上架1，是2，否',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.ISUPPERSHELF = '';
+				this.$refs.ISUPPERSHELF.focus();
+			return false;
+			}
+			if(this.pd.GOODSSYNOPSIS == '' || this.pd.GOODSSYNOPSIS == undefined){
+				$("#GOODSSYNOPSIS").tips({
+					side:3,
+		            msg:'请输入商品简介',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.GOODSSYNOPSIS = '';
+				this.$refs.GOODSSYNOPSIS.focus();
+			return false;
+			}
+			if(this.pd.QUANTITYSOLD == '' || this.pd.QUANTITYSOLD == undefined){
+				$("#QUANTITYSOLD").tips({
+					side:3,
+		            msg:'请输入已售数量',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.QUANTITYSOLD = '';
+				this.$refs.QUANTITYSOLD.focus();
+			return false;
+			}
+			if(this.pd.ISSHOW == '' || this.pd.ISSHOW == undefined){
+				$("#ISSHOW").tips({
+					side:3,
+		            msg:'请输入是否首页展示',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.ISSHOW = '';
+				this.$refs.ISSHOW.focus();
+			return false;
+			}
+			if(this.pd.SERVICESTATEMENT == '' || this.pd.SERVICESTATEMENT == undefined){
+				$("#SERVICESTATEMENT").tips({
+					side:3,
+		            msg:'请输入服务声明',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.SERVICESTATEMENT = '';
+				this.$refs.SERVICESTATEMENT.focus();
+			return false;
+			}
+			if(this.pd.INVENTORYQUANTITY == '' || this.pd.INVENTORYQUANTITY == undefined){
+				$("#INVENTORYQUANTITY").tips({
+					side:3,
+		            msg:'请输入库存数量',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.INVENTORYQUANTITY = '';
+				this.$refs.INVENTORYQUANTITY.focus();
+			return false;
+			}
+			if(this.pd.ISDELETE == '' || this.pd.ISDELETE == undefined){
+				$("#ISDELETE").tips({
+					side:3,
+		            msg:'请输入是否删除',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.ISDELETE = '';
+				this.$refs.ISDELETE.focus();
+			return false;
+			}
+			if(this.pd.OPUSER == '' || this.pd.OPUSER == undefined){
+				$("#OPUSER").tips({
+					side:3,
+		            msg:'请输入操作人',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.OPUSER = '';
+				this.$refs.OPUSER.focus();
+			return false;
+			}
+			this.pd.OPDATE = $("#OPDATE").val();
+			if(this.pd.OPDATE == '' || this.pd.OPDATE == undefined){
+				$("#OPDATE").tips({
+					side:3,
+		            msg:'请输入操作日期',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.OPDATE = '';
+				this.$refs.OPDATE.focus();
+			return false;
+			}
+    		
+    		$("#showform").hide();
+    		$("#jiazai").show();
+    		
+            //发送 post 请求提交保存
+            $.ajax({
+	            	xhrFields: {
+	                    withCredentials: true
+	                },
+					type: "POST",
+					url: httpurl+'goodsinfo/'+this.msg,
+			    	data: {GOODSINFO_ID:this.GOODSINFO_ID,
+				    GOODSNAME:this.pd.GOODSNAME,
+				    GOODSTYPE:this.pd.GOODSTYPE,
+				    GOODSAMOUNT:this.pd.GOODSAMOUNT,
+				    AMOUNTACTIVITY:this.pd.AMOUNTACTIVITY,
+				    GOODSCONTENT:this.pd.GOODSCONTENT,
+				    GOODSIMG:this.pd.GOODSIMG,
+				    AFTERSERVICE:this.pd.AFTERSERVICE,
+				    SERVICEGUARANTEE:this.pd.SERVICEGUARANTEE,
+				    HOTLINE:this.pd.HOTLINE,
+				    ORDERINGINFORMATION:this.pd.ORDERINGINFORMATION,
+				    GOODSDETAILS:this.pd.GOODSDETAILS,
+				    ISUPPERSHELF:this.pd.ISUPPERSHELF,
+				    GOODSSYNOPSIS:this.pd.GOODSSYNOPSIS,
+				    QUANTITYSOLD:this.pd.QUANTITYSOLD,
+				    ISSHOW:this.pd.ISSHOW,
+				    SERVICESTATEMENT:this.pd.SERVICESTATEMENT,
+				    INVENTORYQUANTITY:this.pd.INVENTORYQUANTITY,
+				    ISDELETE:this.pd.ISDELETE,
+				    OPUSER:this.pd.OPUSER,
+				    OPDATE:this.pd.OPDATE,
+			    	tm:new Date().getTime()},
+					dataType:"json",
+					success: function(data){
+                        if("success" == data.result){
+                        	swal("", "保存成功", "success");
+                        	setTimeout(function(){
+                        		top.Dialog.close();//关闭弹窗
+                            },1000);
+                        }else if ("exception" == data.result){
+                        	showException("商品信息",data.exception);//显示异常
+                        	$("#showform").show();
+                    		$("#jiazai").hide();
+                        }
+                    }
+				}).done().fail(function(){
+                   swal("登录失效!", "请求服务器无响应，稍后再试", "warning");
+                   $("#showform").show();
+           		   $("#jiazai").hide();
+                });
+    	},
+    	
+    	//根据主键ID获取数据
+    	getData: function(){
+    		//发送 post 请求
+            $.ajax({
+            	xhrFields: {
+                    withCredentials: true
+                },
+				type: "POST",
+				url: httpurl+'goodsinfo/goEdit',
+		    	data: {GOODSINFO_ID:this.GOODSINFO_ID,tm:new Date().getTime()},
+				dataType:"json",
+				success: function(data){
+                     if("success" == data.result){
+                     	vm.pd = data.pd;							//参数map
+						$("#OPDATE").val(data.pd.OPDATE);
+                     }else if ("exception" == data.result){
+                     	showException("商品信息",data.exception);	//显示异常
+                     	$("#showform").show();
+                 		$("#jiazai").hide();
+                     }
+                  }
+			}).done().fail(function(){
+                  swal("登录失效!", "请求服务器无响应，稍后再试", "warning");
+                  $("#showform").show();
+          		  $("#jiazai").hide();
+               });
+    	},
+    	
+    	//获取数据字典数据
+		getDict: function (){
+		},
+    	
+    	//根据url参数名称获取参数值
+        getUrlKey: function (name) {
+            return decodeURIComponent(
+                (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) || [, ""])[1].replace(/\+/g, '%20')) || null;
+        }
+        
+	},
+	
+	mounted(){
+        this.init();
+    }
+})
+				
+</script>
+
+</body>
+</html>

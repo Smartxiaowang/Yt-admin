@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zcloud.mapper.datasource.system.WeeklyManagerMapper">
+
+	<resultMap type="WeeklyManager" id="WeeklyManagerMap">
+		<id column="WEEKLY_ID" property="WEEKLY_ID"/>
+		<result column="WHAT_WEEK" property="WHAT_WEEK"/>
+		<result column="NUMBER_PROJECT" property="NUMBER_PROJECT"/>
+		<result column="WEEKLY_HOURS" property="WEEKLY_HOURS"/>
+		<result column="REPORTED_HOURS" property="REPORTED_HOURS"/>
+		<result column="ISDELETE" property="ISDELETE"/>
+		<result column="CREATOR" property="CREATOR"/>
+		<result column="CREATTIME" property="CREATTIME"/>
+		<result column="OPERATOR" property="OPERATOR"/>
+		<result column="OPERATTIME" property="OPERATTIME"/>
+	</resultMap>
+
+
+	<!--项目管理表名 -->
+	<sql id="tableName">
+		Weekly_Manager
+	</sql>
+
+	<!-- 字段 -->
+	<sql id="Field">
+		WEEKLY_ID,
+		WHAT_WEEK,
+		NUMBER_PROJECT,
+		WEEKLY_HOURS,
+		REPORTED_HOURS,
+		ISDELETE,
+		CREATOR,
+		CREATTIME,
+		OPERATOR,
+		OPERATTIME
+	</sql>
+
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{WEEKLY_ID},
+		#{WHAT_WEEK},
+		#{NUMBER_PROJECT},
+		#{WEEKLY_HOURS},
+		#{REPORTED_HOURS},
+		#{ISDELETE},
+		#{CREATOR},
+		#{CREATTIME},
+		#{OPERATOR},
+		#{OPERATTIME}
+	</sql>
+
+
+
+	<!-- 查询周报列表 -->
+	<select id="listPage" parameterType="page" resultType="pd" >
+		select
+			<include refid="Field"></include>
+		from
+			<include refid="tableName"></include>
+		where ISDELETE = 0
+		<if test="pd.start !=null and pd.start != ''">
+			and
+			(
+			    CREATTIME <![CDATA[ >= ]]> #{pd.start}
+			)
+		</if>
+		<if test="pd.end != null and pd.end != ''">
+			and
+			(
+			CREATTIME <![CDATA[ <= ]]> #{pd.end}
+			)
+		</if>
+		<!--<if test="pd.PROJECT_TYPE != null and pd.PROJECT_TYPE != ''">		&lt;!&ndash; 项目类型检索 &ndash;&gt;
+			and
+			(
+			PROJECT_TYPE LIKE CONCAT(CONCAT('%', #{pd.PROJECT_TYPE}),'%')
+			)
+		</if>
+		<if test="pd.PROJECT_LEADER != null and pd.PROJECT_LEADER != ''">		&lt;!&ndash; 项目负责人检索 &ndash;&gt;
+			and
+			(
+			PROJECT_LEADER LIKE CONCAT(CONCAT('%', #{pd.PROJECT_LEADER}),'%')
+			)
+		</if>
+		<if test="pd.SVN_ADDRESS != null and pd.SVN_ADDRESS != ''">		&lt;!&ndash; SVN 地址检索 &ndash;&gt;
+			and
+			(
+			SVN_ADDRESS LIKE CONCAT(CONCAT('%', #{pd.SVN_ADDRESS}),'%')
+			)
+		</if>-->
+		order by WHAT_WEEK desc
+	</select>
+
+	<!-- 修改 -->
+	<update id="edit" parameterType="pd" >
+		update  <include refid="tableName"></include>
+		set NUMBER_PROJECT 			= #{NUMBER_PROJECT},
+		REPORTED_HOURS 		= #{REPORTED_HOURS}
+		where
+		WEEKLY_ID = #{WEEKLY_ID}
+	</update>
+
+	<!-- 新增 -->
+	<insert id="addWeekly" parameterType="pd">
+		insert into
+		<include refid="tableName"></include>
+		(
+			<include refid="Field"></include>
+		)values (
+			<include refid="FieldValue"></include>
+		)
+	</insert>
+
+	<!-- 删除 -->
+	<update id="deleteProject" parameterType="pd">
+		update <include refid="tableName"></include>
+		set ISDELETE = 1
+		where
+		PROJECT_ID = #{PROJECT_ID}
+	</update>
+
+	<!--批量删除项目-->
+	<update id="deleteAllProject" parameterType="String">
+		UPDATE <include refid="tableName"></include>
+		set ISDELETE = 1
+		where
+		PROJECT_ID in
+		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+</mapper>

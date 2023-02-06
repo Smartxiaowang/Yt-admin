@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zcloud.mapper.datasource.system.ProjectDetailsMapper">
+
+	<resultMap type="ProjectDetails" id="ProjectDetailsMapperMap">
+		<id column="DETAILS_ID" property="DETAILS_ID"/>
+		<result column="PROJECT_ID" property="PROJECT_ID"/>
+		<result column="VERSION_NAME" property="VERSION_NAME"/>
+		<result column="TYPE" property="TYPE"/>
+		<result column="UPLOAD_CONTENT" property="UPLOAD_CONTENT"/>
+		<result column="UPDATE_TIME" property="UPDATE_TIME"/>
+		<result column="PLAN_START_TIME" property="PLAN_START_TIME"/>
+		<result column="PLAN_START_TIME" property="PLAN_START_TIME"/>
+		<result column="VERSION_NAME" property="VERSION_NAME"/>
+		<result column="LEADER" property="LEADER"/>
+		<result column="VERSION" property="VERSION"/>
+		<result column="SVN_ADDRESS" property="SVN_ADDRESS"/>
+		<result column="REMARKS" property="REMARKS"/>
+		<result column="ISDELETE" property="ISDELETE"/>
+		<result column="CREATOR" property="CREATOR"/>
+		<result column="CREATTIME" property="CREATTIME"/>
+		<result column="OPERATOR" property="OPERATOR"/>
+		<result column="OPERATTIME" property="OPERATTIME"/>
+	</resultMap>
+
+
+	<!--项目管理详情表名 -->
+	<sql id="tableName">
+		PROJECT_DETAILS
+	</sql>
+
+	<!--项目管理表名 -->
+	<sql id="tableNamepm">
+		PRO_MANAGER
+	</sql>
+
+	<!-- 字段 -->
+	<sql id="Field">
+		DETAILS_ID,
+		PROJECT_ID,
+		VERSION_NAME,
+		TYPE,
+		UPLOAD_CONTENT,
+		UPDATE_TIME,
+		PLAN_START_TIME,
+		PLAN_END_TIME,
+		LEADER,
+		VERSION,
+		SVN_ADDRESS,
+		REMARKS,
+		ISDELETE,
+		CREATOR,
+		CREATTIME,
+		OPERATOR,
+		OPERATTIME
+	</sql>
+
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{DETAILS_ID},
+		#{PROJECT_ID},
+		#{VERSION_NAME},
+		#{TYPE},
+		#{UPLOAD_CONTENT},
+		#{UPDATE_TIME},
+		#{PLAN_START_TIME},
+		#{PLAN_END_TIME},
+		#{LEADER},
+		#{VERSION},
+		#{SVN_ADDRESS},
+		#{REMARKS},
+		#{ISDELETE},
+		#{CREATOR},
+		#{CREATTIME},
+		#{OPERATOR},
+		#{OPERATTIME}
+	</sql>
+
+	<!-- 新增 -->
+	<insert id="add" parameterType="pd">
+		insert into
+		<include refid="tableName"></include>
+		(
+		<include refid="Field"></include>
+		)values (
+		<include refid="FieldValue"></include>
+		)
+	</insert>
+
+	<!-- 删除 -->
+	<update id="delete" parameterType="pd">
+		update <include refid="tableName"></include>
+		set ISDELETE = 1
+		where
+		DETAILS_ID = #{DETAILS_ID}
+	</update>
+
+	<!--批量删除项目-->
+	<update id="deleteAll" parameterType="String">
+		UPDATE <include refid="tableName"></include>
+		set ISDELETE = 1
+		where
+		DETAILS_ID in
+		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+
+	<!--批量删除项目-->
+	<select id="findUpdate" parameterType="pd" resultType="pd" >
+		select
+			f.*
+		from
+			<include refid="tableName"></include> f
+		left join PRO_MANAGER p on p.PROJECT_ID = f.PROJECT_ID
+		where
+		    f.ISDELETE = 0
+			and p.CODE = #{CODE}
+		  	and f.TYPE = #{TYPE}
+		and
+			date_format(now(),'%Y-%m-%d %H:%i:%S') between f.PLAN_START_TIME and f.PLAN_END_TIME
+	</select>
+
+	<!-- 修改 -->
+	<update id="edit" parameterType="pd" >
+		update  <include refid="tableName"></include>
+		set PROJECT_ID 			    = #{PROJECT_ID},
+		VERSION_NAME                = #{VERSION_NAME},
+		TYPE = #{TYPE},
+		UPDATE_TIME                 = #{UPDATE_TIME},
+		UPLOAD_CONTENT              = #{UPLOAD_CONTENT},
+		PLAN_START_TIME             = #{PLAN_START_TIME},
+		PLAN_END_TIME               = #{PLAN_END_TIME},
+		LEADER                      = #{LEADER},
+		VERSION 		            = #{VERSION},
+		SVN_ADDRESS 			    = #{SVN_ADDRESS},
+		REMARKS			            = #{REMARKS}
+		where
+		DETAILS_ID = #{DETAILS_ID}
+	</update>
+
+	<!-- 项目详情列表 -->
+	<select id="listPage" parameterType="page" resultType="pd" >
+		select
+			d.DETAILS_ID,
+			d.PROJECT_ID,
+			d.VERSION_NAME,
+			d.TYPE,
+			d.UPLOAD_CONTENT,
+			d.UPDATE_TIME,
+			d.PLAN_START_TIME,
+			d.PLAN_END_TIME,
+			d.LEADER,
+			d.VERSION,
+			d.SVN_ADDRESS,
+			d.REMARKS,
+			d.ISDELETE,
+			d.CREATOR,
+			d.CREATTIME,
+			d.OPERATOR,
+			d.OPERATTIME,
+			m.PROJECT_NAME,
+			m.TECHNICAL_LEADER
+		from
+		 	<include refid="tableName"></include> d
+		LEFT JOIN
+			<include refid="tableNamepm"></include> m
+		ON d.PROJECT_ID=m.PROJECT_ID
+		where d.ISDELETE = 0
+		and
+			d.PROJECT_ID = #{pd.PROJECT_ID}
+		<if test="pd.VERSION != null and pd.VERSION != ''">		/*项目名称检索*/
+			and
+			(
+			d.VERSION LIKE CONCAT(CONCAT('%', #{pd.VERSION}),'%')
+			)
+		</if>
+		<if test="pd.SVN_ADDRESS != null and pd.SVN_ADDRESS != ''">		/*项目名称检索*/
+			and
+			(
+			d.SVN_ADDRESS LIKE CONCAT(CONCAT('%', #{pd.SVN_ADDRESS}),'%')
+			)
+		</if>
+		<if test="pd.REMARKS != null and pd.REMARKS != ''">		/*项目名称检索*/
+			and
+			(
+			d.REMARKS LIKE CONCAT(CONCAT('%', #{pd.REMARKS}),'%')
+			)
+		</if>
+		<if test="pd.VERSION_NAME != null and pd.VERSION_NAME != ''">		/*项目名称检索*/
+			and
+			(
+			d.VERSION_NAME LIKE CONCAT(CONCAT('%', #{pd.VERSION_NAME}),'%')
+			)
+		</if>
+		<if test="pd.UPLOAD_CONTENT != null and pd.UPLOAD_CONTENT != ''">		/*项目名称检索*/
+			and
+			(
+			d.UPLOAD_CONTENT LIKE CONCAT(CONCAT('%', #{pd.UPLOAD_CONTENT}),'%')
+			)
+		</if>
+		<if test="pd.LEADER != null and pd.LEADER != ''">		/*项目名称检索*/
+			and
+			(
+			d.LEADER LIKE CONCAT(CONCAT('%', #{pd.LEADER}),'%')
+			)
+		</if>
+		order by CREATTIME desc
+	</select>
+
+
+</mapper>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zcloud.mapper.datasource.system.PromanagerMapper">
+
+	<resultMap type="Projectmanager" id="ProjectmanagrMap">
+		<id column="PROJECT_ID" property="PROJECT_ID"/>
+		<result column="CODE" property="CODE"/>
+		<result column="PROJECT_NAME" property="PROJECT_NAME"/>
+		<result column="PROJECT_DESCRIPTION" property="PROJECT_DESCRIPTION"/>
+		<result column="PROJECT_PHASE" property="PROJECT_PHASE"/>
+		<result column="PROJECT_TYPE" property="PROJECT_TYPE"/>
+		<result column="PROJECT_LEADER" property="PROJECT_LEADER"/>
+		<result column="TECHNICAL_LEADER" property="TECHNICAL_LEADER"/>
+		<result column="PARTICIPANT" property="PARTICIPANT"/>
+		<result column="STATE" property="STATE"/>
+		<result column="SVN_ADDRESS" property="SVN_ADDRESS"/>
+		<result column="ISDELETE" property="ISDELETE"/>
+		<result column="CREATOR" property="CREATOR"/>
+		<result column="CREATTIME" property="CREATTIME"/>
+		<result column="OPERATOR" property="OPERATOR"/>
+		<result column="OPERATTIME" property="OPERATTIME"/>
+	</resultMap>
+
+
+	<!--项目管理表名 -->
+	<sql id="tableName">
+		PRO_MANAGER
+	</sql>
+
+	<!-- 字段 -->
+	<sql id="Field">
+		PROJECT_ID,
+		CODE,
+		PROJECT_NAME,
+		PROJECT_DESCRIPTION,
+		PROJECT_PHASE,
+		PROJECT_TYPE,
+		PROJECT_LEADER,
+		TECHNICAL_LEADER,
+		PARTICIPANT,
+		STATE,
+		SVN_ADDRESS,
+		ISDELETE,
+		CREATOR,
+		CREATTIME,
+		OPERATOR,
+		OPERATTIME
+	</sql>
+
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{PROJECT_ID},
+		#{CODE},
+		#{PROJECT_NAME},
+		#{PROJECT_DESCRIPTION},
+		#{PROJECT_PHASE},
+		#{PROJECT_TYPE},
+		#{PROJECT_LEADER},
+		#{TECHNICAL_LEADER},
+		#{PARTICIPANT},
+		#{STATE},
+		#{SVN_ADDRESS},
+		#{ISDELETE},
+		#{CREATOR},
+		#{CREATTIME},
+		#{OPERATOR},
+		#{OPERATTIME}
+	</sql>
+
+
+
+	<!-- 所有项目 -->
+	<select id="listPage" parameterType="page" resultType="pd" >
+		select
+			<include refid="Field"></include>
+		from
+			<include refid="tableName"></include>
+		where ISDELETE = 0
+		<if test="pd.PROJECT_NAME != null and pd.PROJECT_NAME != ''">		<!-- 项目名称检索 -->
+			and
+			(
+			    PROJECT_NAME LIKE CONCAT(CONCAT('%', #{pd.PROJECT_NAME}),'%')
+			)
+		</if>
+		<if test="pd.PROJECT_DESCRIPTION != null and pd.PROJECT_DESCRIPTION != ''">		<!-- 项目描述检索 -->
+			and
+			(
+			PROJECT_DESCRIPTION LIKE CONCAT(CONCAT('%', #{pd.PROJECT_DESCRIPTION}),'%')
+			)
+		</if>
+		<if test="pd.PROJECT_TYPE != null and pd.PROJECT_TYPE != ''">		<!-- 项目类型检索 -->
+			and
+			(
+			PROJECT_TYPE LIKE CONCAT(CONCAT('%', #{pd.PROJECT_TYPE}),'%')
+			)
+		</if>
+		<if test="pd.PROJECT_LEADER != null and pd.PROJECT_LEADER != ''">		<!-- 项目负责人检索 -->
+			and
+			(
+			PROJECT_LEADER LIKE CONCAT(CONCAT('%', #{pd.PROJECT_LEADER}),'%')
+			)
+		</if>
+		<if test="pd.SVN_ADDRESS != null and pd.SVN_ADDRESS != ''">		<!-- SVN 地址检索 -->
+			and
+			(
+			SVN_ADDRESS LIKE CONCAT(CONCAT('%', #{pd.SVN_ADDRESS}),'%')
+			)
+		</if>
+		order by CREATTIME desc
+	</select>
+
+	<!-- 修改 -->
+	<update id="editProject" parameterType="pd" >
+		update  <include refid="tableName"></include>
+		set
+		CODE 			= #{CODE},
+		PROJECT_NAME 			= #{PROJECT_NAME},
+		PROJECT_DESCRIPTION 		= #{PROJECT_DESCRIPTION},
+		PROJECT_PHASE               = #{PROJECT_PHASE},
+		PROJECT_TYPE 				= #{PROJECT_TYPE},
+		PROJECT_LEADER			    = #{PROJECT_LEADER},
+		TECHNICAL_LEADER            = #{TECHNICAL_LEADER},
+		PARTICIPANT                 = #{PARTICIPANT},
+		STATE                       = #{STATE},
+		SVN_ADDRESS					= #{SVN_ADDRESS},
+		OPERATOR                    = #{OPERATOR},
+		OPERATTIME                  = #{OPERATTIME}
+		where
+		PROJECT_ID = #{PROJECT_ID}
+	</update>
+
+	<!-- 通过CODE获取数据 -->
+	<select id="findByCode" parameterType="pd" resultType="pd">
+		select
+		<include refid="Field"></include>
+		from
+		<include refid="tableName"></include> f
+		where
+		f.CODE = #{CODE}
+		<if test="PROJECT_ID != null and PROJECT_ID != ''"><!-- 关键词检索 -->
+			and f.PROJECT_ID != #{PROJECT_ID}
+		</if>
+	</select>
+
+	<!-- 新增 -->
+	<insert id="addProject" parameterType="pd">
+		insert into
+		<include refid="tableName"></include>
+		(
+			<include refid="Field"></include>
+		)values (
+			<include refid="FieldValue"></include>
+		)
+	</insert>
+
+	<!-- 删除 -->
+	<update id="deleteProject" parameterType="pd">
+		update <include refid="tableName"></include>
+		set ISDELETE = 1
+		where
+		PROJECT_ID = #{PROJECT_ID}
+	</update>
+
+	<!--批量删除项目-->
+	<update id="deleteAllProject" parameterType="String">
+		UPDATE <include refid="tableName"></include>
+		set ISDELETE = 1
+		where
+		PROJECT_ID in
+		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+</mapper>

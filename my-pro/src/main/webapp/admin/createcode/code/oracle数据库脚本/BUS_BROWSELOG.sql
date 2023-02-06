@@ -1,0 +1,41 @@
+-- ----------------------------
+-- Table structure for "C##FHBOOT"."BUS_BROWSELOG"
+-- ----------------------------
+-- DROP TABLE "C##FHBOOT"."BUS_BROWSELOG";
+CREATE TABLE "C##FHBOOT"."BUS_BROWSELOG" (
+	"PAGENAME" VARCHAR2(255 BYTE) NULL ,
+	"PAGETYPE" VARCHAR2(255 BYTE) NULL ,
+	"OPDATE" VARCHAR2(255 BYTE) NULL ,
+	"OPUSER" VARCHAR2(255 BYTE) NULL ,
+	"ISDELETE" VARCHAR2(255 BYTE) NULL ,
+	"PAGEID" VARCHAR2(255 BYTE) NULL ,
+	"BROWSELOG_ID" VARCHAR2(100 BYTE) NOT NULL 
+)
+LOGGING
+NOCOMPRESS
+NOCACHE
+;
+
+COMMENT ON COLUMN "C##FHBOOT"."BUS_BROWSELOG"."PAGENAME" IS '页面名称';
+COMMENT ON COLUMN "C##FHBOOT"."BUS_BROWSELOG"."PAGETYPE" IS '类型';
+COMMENT ON COLUMN "C##FHBOOT"."BUS_BROWSELOG"."OPDATE" IS '日期';
+COMMENT ON COLUMN "C##FHBOOT"."BUS_BROWSELOG"."OPUSER" IS '操作人';
+COMMENT ON COLUMN "C##FHBOOT"."BUS_BROWSELOG"."ISDELETE" IS '是否删除';
+COMMENT ON COLUMN "C##FHBOOT"."BUS_BROWSELOG"."PAGEID" IS '页面ID';
+COMMENT ON COLUMN "C##FHBOOT"."BUS_BROWSELOG"."BROWSELOG_ID" IS 'ID';
+
+-- ----------------------------
+-- Indexes structure for table BUS_BROWSELOG
+-- ----------------------------
+
+-- ----------------------------
+-- Checks structure for table "C##FHBOOT"."BUS_BROWSELOG"
+
+-- ----------------------------
+
+ALTER TABLE "C##FHBOOT"."BUS_BROWSELOG" ADD CHECK ("BROWSELOG_ID" IS NOT NULL);
+
+-- ----------------------------
+-- Primary Key structure for table "C##FHBOOT"."BUS_BROWSELOG"
+-- ----------------------------
+ALTER TABLE "C##FHBOOT"."BUS_BROWSELOG" ADD PRIMARY KEY ("BROWSELOG_ID");

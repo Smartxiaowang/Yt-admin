@@ -1,0 +1,710 @@
+2020-10-25 14:42:15.674 [restartedMain] ERROR org.apache.catalina.util.LifecycleBase - Failed to start component [Connector[HTTP/1.1-8081]]
+org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1004)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:226)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:259)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:197)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:311)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:164)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.zcloud.FHmainApplication.main(FHmainApplication.java:22)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:236)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1085)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1171)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:568)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1001)
+	... 19 common frames omitted
+2020-10-25 14:42:15.720 [restartedMain] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8081 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8081, or configure this application to listen on another port.
+
+2020-10-25 14:45:00.116 [scheduling-1] DEBUG c.z.m.datasource.bus.OrderMapper.scheduledTask - ==>  Preparing: update BUS_ORDER t set t.STATUS=41, t.CHARGEBACK_DESCR='超时未付款，系统自动取消' where t.CREATTIME <= CONCAT(date_format(DATE_SUB(NOW(), INTERVAL 5 MINUTE),'%Y%m%d%H%i%S'),'000') and t.STATUS=-1 
+2020-10-25 14:45:00.134 [scheduling-1] DEBUG c.z.m.datasource.bus.OrderMapper.scheduledTask - ==> Parameters: 
+2020-10-25 14:45:00.137 [scheduling-1] DEBUG c.z.m.datasource.bus.OrderMapper.scheduledTask - <==    Updates: 0
+2020-10-25 14:45:21.123 [http-nio-192.168.0.9-8081-exec-1] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-25 14:45:21.424 [http-nio-192.168.0.9-8081-exec-3] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-25 14:45:22.038 [http-nio-192.168.0.9-8081-exec-5] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-25 14:45:22.638 [http-nio-192.168.0.9-8081-exec-7] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-25 14:45:23.254 [http-nio-192.168.0.9-8081-exec-9] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-25 14:45:23.855 [http-nio-192.168.0.9-8081-exec-1] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-25 14:45:24.470 [http-nio-192.168.0.9-8081-exec-3] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-25 14:45:25.087 [http-nio-192.168.0.9-8081-exec-5] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-25 14:45:25.687 [http-nio-192.168.0.9-8081-exec-7] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-25 14:45:26.097 [http-nio-192.168.0.9-8081-exec-8] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-25 14:45:35.279 [http-nio-192.168.0.9-8081-exec-10] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-25 14:45:35.895 [http-nio-192.168.0.9-8081-exec-2] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-25 14:45:36.029 [http-nio-192.168.0.9-8081-exec-4] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
+java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
+	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
+	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
+	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-10-25 14:50:00.004 [scheduling-1] DEBUG c.z.m.datasource.bus.OrderMapper.scheduledTask - ==>  Preparing: update BUS_ORDER t set t.STATUS=41, t.CHARGEBACK_DESCR='超时未付款，系统自动取消' where t.CREATTIME <= CONCAT(date_format(DATE_SUB(NOW(), INTERVAL 5 MINUTE),'%Y%m%d%H%i%S'),'000') and t.STATUS=-1 
+2020-10-25 14:50:00.004 [scheduling-1] DEBUG c.z.m.datasource.bus.OrderMapper.scheduledTask - ==> Parameters: 
+2020-10-25 14:50:00.006 [scheduling-1] DEBUG c.z.m.datasource.bus.OrderMapper.scheduledTask - <==    Updates: 0
+2020-10-25 14:55:00.007 [scheduling-1] DEBUG c.z.m.datasource.bus.OrderMapper.scheduledTask - ==>  Preparing: update BUS_ORDER t set t.STATUS=41, t.CHARGEBACK_DESCR='超时未付款，系统自动取消' where t.CREATTIME <= CONCAT(date_format(DATE_SUB(NOW(), INTERVAL 5 MINUTE),'%Y%m%d%H%i%S'),'000') and t.STATUS=-1 
+2020-10-25 14:55:00.007 [scheduling-1] DEBUG c.z.m.datasource.bus.OrderMapper.scheduledTask - ==> Parameters: 
+2020-10-25 14:55:00.010 [scheduling-1] DEBUG c.z.m.datasource.bus.OrderMapper.scheduledTask - <==    Updates: 0
+2020-10-25 14:55:18.214 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==>  Preparing: select USER_ID, USERNAME, PASSWORD, NAME, ROLE_ID, LAST_LOGIN, IP, STATUS, BZ, SKIN, EMAIL, NUMBER, PHONE, ROLE_IDS, DEPARTMENT_ID, OPENID, FUN_IDS from SYS_USER where USERNAME = ? 
+2020-10-25 14:55:18.214 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==> Parameters: admin(String)
+2020-10-25 14:55:18.248 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - <==      Total: 1
+2020-10-25 14:55:18.255 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==>  Preparing: select USER_ID, USERNAME, PASSWORD, NAME, ROLE_ID, LAST_LOGIN, IP, STATUS, BZ, SKIN, EMAIL, NUMBER, PHONE, ROLE_IDS, DEPARTMENT_ID, OPENID, FUN_IDS from SYS_USER where USERNAME = ? 
+2020-10-25 14:55:18.255 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==> Parameters: admin(String)
+2020-10-25 14:55:18.257 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - <==      Total: 1
+2020-10-25 14:55:18.262 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.z.mapper.datasource.system.RoleMapper.findById - ==>  Preparing: select ROLE_ID, ROLE_NAME, RIGHTS, PARENT_ID, ADD_QX, DEL_QX, EDIT_QX, CHA_QX, RNUMBER from SYS_ROLE where ROLE_ID = ? 
+2020-10-25 14:55:18.263 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.z.mapper.datasource.system.RoleMapper.findById - ==> Parameters: 1(String)
+2020-10-25 14:55:18.265 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.z.mapper.datasource.system.RoleMapper.findById - <==      Total: 1
+2020-10-25 14:55:18.271 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.zcloud.mapper.datasource.system.FHlogMapper.save - ==>  Preparing: insert into SYS_FHLOG ( USERNAME, CZTIME, CONTENT, FHLOG_ID ) values ( ?, ?, ?, ? ) 
+2020-10-25 14:55:18.271 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.zcloud.mapper.datasource.system.FHlogMapper.save - ==> Parameters: admin(String), 2020-10-25 14:55:18(String), 成功登录系统(String), 7778324fa95c4e1d9e7ec57454195596(String)
+2020-10-25 14:55:18.275 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.zcloud.mapper.datasource.system.FHlogMapper.save - <==    Updates: 1
+2020-10-25 14:55:18.424 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.UsersMapper.getUserAndRoleById - ==>  Preparing: select u.USER_ID, u.USERNAME, u.NAME, u.PASSWORD, u.SKIN, u.NUMBER, u.ROLE_IDS, r.ROLE_ID, r.ROLE_NAME, r.RIGHTS as ROLE_RIGHTS, r.ADD_QX, r.DEL_QX, r.EDIT_QX, r.CHA_QX from SYS_USER u left join SYS_ROLE r on u.ROLE_ID=r.ROLE_ID where u.STATUS=0 and u.USER_ID=? 
+2020-10-25 14:55:18.424 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.UsersMapper.getUserAndRoleById - ==> Parameters: 1(String)
+2020-10-25 14:55:18.427 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.UsersMapper.getUserAndRoleById - <==      Total: 1
+2020-10-25 14:55:18.434 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.datasource.system.FhButtonMapper.listAll - ==>  Preparing: select NAME, SHIRO_KEY, BZ, FHBUTTON_ID from SYS_FHBUTTON 
+2020-10-25 14:55:18.434 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.datasource.system.FhButtonMapper.listAll - ==> Parameters: 
+2020-10-25 14:55:18.437 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.datasource.system.FhButtonMapper.listAll - <==      Total: 10
+2020-10-25 14:55:18.443 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.443 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 0(String)
+2020-10-25 14:55:18.447 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 10
+2020-10-25 14:55:18.447 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.448 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 1(String)
+2020-10-25 14:55:18.451 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 7
+2020-10-25 14:55:18.452 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.452 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 2(String)
+2020-10-25 14:55:18.455 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 2
+2020-10-25 14:55:18.455 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.455 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 6(String)
+2020-10-25 14:55:18.457 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.458 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.458 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 7(String)
+2020-10-25 14:55:18.460 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.460 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.461 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 9(String)
+2020-10-25 14:55:18.463 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.464 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.464 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 8(String)
+2020-10-25 14:55:18.466 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.467 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.467 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 12(String)
+2020-10-25 14:55:18.469 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.470 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.470 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 3(String)
+2020-10-25 14:55:18.472 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.472 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.473 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 71(String)
+2020-10-25 14:55:18.474 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.475 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.475 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 145(String)
+2020-10-25 14:55:18.477 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.478 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.478 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 120(String)
+2020-10-25 14:55:18.480 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 1
+2020-10-25 14:55:18.481 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.481 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 121(String)
+2020-10-25 14:55:18.483 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.483 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.483 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 10(String)
+2020-10-25 14:55:18.485 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 1
+2020-10-25 14:55:18.485 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.486 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 11(String)
+2020-10-25 14:55:18.487 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.488 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.488 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 5(String)
+2020-10-25 14:55:18.490 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 3
+2020-10-25 14:55:18.491 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.491 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 13(String)
+2020-10-25 14:55:18.493 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 3
+2020-10-25 14:55:18.494 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.494 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 14(String)
+2020-10-25 14:55:18.496 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.496 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.496 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 15(String)
+2020-10-25 14:55:18.499 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.499 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.500 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 16(String)
+2020-10-25 14:55:18.501 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 4
+2020-10-25 14:55:18.502 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.502 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 17(String)
+2020-10-25 14:55:18.505 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 12
+2020-10-25 14:55:18.505 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.505 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 21(String)
+2020-10-25 14:55:18.507 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.507 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.507 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 22(String)
+2020-10-25 14:55:18.508 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.509 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.509 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 23(String)
+2020-10-25 14:55:18.511 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.511 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.511 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 24(String)
+2020-10-25 14:55:18.513 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.513 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.513 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 25(String)
+2020-10-25 14:55:18.515 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.515 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.515 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 26(String)
+2020-10-25 14:55:18.516 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.517 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.517 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 27(String)
+2020-10-25 14:55:18.518 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.518 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.518 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 28(String)
+2020-10-25 14:55:18.519 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.520 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.520 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 29(String)
+2020-10-25 14:55:18.521 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.521 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.521 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 30(String)
+2020-10-25 14:55:18.523 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.523 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.523 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 31(String)
+2020-10-25 14:55:18.525 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.525 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.525 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 32(String)
+2020-10-25 14:55:18.526 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.527 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.527 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 18(String)
+2020-10-25 14:55:18.530 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 12
+2020-10-25 14:55:18.530 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.530 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 33(String)
+2020-10-25 14:55:18.531 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.532 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.532 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 34(String)
+2020-10-25 14:55:18.533 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.534 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.534 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 35(String)
+2020-10-25 14:55:18.536 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.536 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.536 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 36(String)
+2020-10-25 14:55:18.538 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.538 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.538 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 37(String)
+2020-10-25 14:55:18.539 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.539 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.539 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 38(String)
+2020-10-25 14:55:18.541 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.541 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.541 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 39(String)
+2020-10-25 14:55:18.543 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.543 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.543 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 40(String)
+2020-10-25 14:55:18.545 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.545 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.545 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 41(String)
+2020-10-25 14:55:18.547 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.547 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.547 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 42(String)
+2020-10-25 14:55:18.549 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.549 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.549 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 43(String)
+2020-10-25 14:55:18.552 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.552 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.552 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 44(String)
+2020-10-25 14:55:18.553 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.554 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.554 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 19(String)
+2020-10-25 14:55:18.556 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 12
+2020-10-25 14:55:18.556 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.556 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 45(String)
+2020-10-25 14:55:18.557 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.557 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.558 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 46(String)
+2020-10-25 14:55:18.558 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.559 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.559 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 47(String)
+2020-10-25 14:55:18.561 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.561 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.561 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 48(String)
+2020-10-25 14:55:18.562 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.563 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.563 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 49(String)
+2020-10-25 14:55:18.564 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.564 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.565 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 50(String)
+2020-10-25 14:55:18.566 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.566 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.566 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 51(String)
+2020-10-25 14:55:18.568 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.568 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.568 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 52(String)
+2020-10-25 14:55:18.569 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.569 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.570 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 53(String)
+2020-10-25 14:55:18.570 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.571 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.571 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 54(String)
+2020-10-25 14:55:18.571 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.571 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.571 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 55(String)
+2020-10-25 14:55:18.572 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.572 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.572 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 56(String)
+2020-10-25 14:55:18.573 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.573 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.574 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 20(String)
+2020-10-25 14:55:18.576 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 14
+2020-10-25 14:55:18.577 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.577 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 57(String)
+2020-10-25 14:55:18.579 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.579 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.579 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 58(String)
+2020-10-25 14:55:18.581 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.581 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.581 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 59(String)
+2020-10-25 14:55:18.583 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.583 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.583 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 60(String)
+2020-10-25 14:55:18.585 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.585 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.585 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 61(String)
+2020-10-25 14:55:18.587 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.587 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.587 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 62(String)
+2020-10-25 14:55:18.589 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.590 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.590 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 63(String)
+2020-10-25 14:55:18.591 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.591 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.591 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 64(String)
+2020-10-25 14:55:18.593 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.593 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.593 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 65(String)
+2020-10-25 14:55:18.595 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.595 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.595 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 66(String)
+2020-10-25 14:55:18.596 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.596 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.596 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 67(String)
+2020-10-25 14:55:18.597 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.598 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.598 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 68(String)
+2020-10-25 14:55:18.599 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.599 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.599 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 69(String)
+2020-10-25 14:55:18.600 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.600 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.601 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 70(String)
+2020-10-25 14:55:18.602 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.602 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.602 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 95(String)
+2020-10-25 14:55:18.603 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.603 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.603 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 4(String)
+2020-10-25 14:55:18.605 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.605 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.605 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 76(String)
+2020-10-25 14:55:18.606 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.606 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.606 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 147(String)
+2020-10-25 14:55:18.608 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 7
+2020-10-25 14:55:18.608 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.608 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 148(String)
+2020-10-25 14:55:18.610 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.610 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.610 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 150(String)
+2020-10-25 14:55:18.612 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.612 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.612 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 152(String)
+2020-10-25 14:55:18.613 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.614 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.614 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 153(String)
+2020-10-25 14:55:18.615 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.615 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.615 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 154(String)
+2020-10-25 14:55:18.616 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.616 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.617 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 161(String)
+2020-10-25 14:55:18.618 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.618 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.618 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 165(String)
+2020-10-25 14:55:18.619 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.619 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.619 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 159(String)
+2020-10-25 14:55:18.621 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 1
+2020-10-25 14:55:18.621 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.621 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 160(String)
+2020-10-25 14:55:18.622 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.622 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.622 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 146(String)
+2020-10-25 14:55:18.624 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 6
+2020-10-25 14:55:18.624 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.624 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 149(String)
+2020-10-25 14:55:18.626 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.626 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.626 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 151(String)
+2020-10-25 14:55:18.628 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.628 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.628 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 158(String)
+2020-10-25 14:55:18.629 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.629 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.629 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 157(String)
+2020-10-25 14:55:18.631 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.631 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.631 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 155(String)
+2020-10-25 14:55:18.632 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.632 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.633 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 156(String)
+2020-10-25 14:55:18.634 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.634 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.634 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 162(String)
+2020-10-25 14:55:18.636 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 2
+2020-10-25 14:55:18.636 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.636 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 163(String)
+2020-10-25 14:55:18.638 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.638 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.638 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 164(String)
+2020-10-25 14:55:18.639 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.639 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.640 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 166(String)
+2020-10-25 14:55:18.641 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 2
+2020-10-25 14:55:18.641 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.641 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 167(String)
+2020-10-25 14:55:18.642 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.643 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==>  Preparing: select MENU_ID, MENU_NAME, MENU_URL, PARENT_ID, MENU_ICON, SHIRO_KEY, MENU_ORDER, MENU_STATE, MENU_TYPE from SYS_MENU where PARENT_ID = ? order by (MENU_ORDER+0) 
+2020-10-25 14:55:18.643 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - ==> Parameters: 168(String)
+2020-10-25 14:55:18.644 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.m.d.system.MenuMapper.listSubMenuByParentId - <==      Total: 0
+2020-10-25 14:55:18.650 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.mapper.datasource.system.UsersMapper.saveIP - ==>  Preparing: update SYS_USER set IP = ?, LAST_LOGIN = ? where USERNAME = ? 
+2020-10-25 14:55:18.650 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.mapper.datasource.system.UsersMapper.saveIP - ==> Parameters: 192.168.0.9(String), 2020-10-25 14:55:18(String), admin(String)
+2020-10-25 14:55:18.653 [http-nio-192.168.0.9-8081-exec-9] DEBUG c.z.mapper.datasource.system.UsersMapper.saveIP - <==    Updates: 1
+2020-10-25 14:55:18.678 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.m.d.bus.OrderMapper.orderStatisticsByDay - ==>  Preparing: SELECT d.date,IFNULL(f.count,0) as count,IFNULL(f.price,0.00) as price FROM v_dates d left join (SELECT DATE_FORMAT( t.CREATTIME, '%Y-%m-%d') AS CREATTIME, count(1) as count, sum(t.PRICE) as price FROM bus_order t WHERE t.STATUS = 9 GROUP BY DATE_FORMAT( t.CREATTIME, '%Y-%m-%d') ) f on f.CREATTIME = d.date WHERE d.date BETWEEN ? AND ? ORDER BY d.date desc 
+2020-10-25 14:55:18.678 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.m.d.bus.OrderMapper.orderStatisticsByDay - ==> Parameters: 2020-10-10(String), 2020-10-25(String)
+2020-10-25 14:55:18.689 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.m.d.bus.OrderMapper.orderStatisticsByDay - <==      Total: 16
+2020-10-25 14:55:18.724 [http-nio-192.168.0.9-8081-exec-1] DEBUG c.z.mapper.datasource.system.PhotoMapper.findById - ==>  Preparing: select USERNAME, PHOTO0, PHOTO1, PHOTO2, PHOTO3, USERPHOTO_ID from SYS_USERPHOTO where USERNAME = ? 
+2020-10-25 14:55:18.724 [http-nio-192.168.0.9-8081-exec-1] DEBUG c.z.mapper.datasource.system.PhotoMapper.findById - ==> Parameters: admin(String)
+2020-10-25 14:55:18.726 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.m.d.bus.OrderMapper.classifyStatistics - ==>  Preparing: SELECT f.name,count(1) as value FROM bus_classify f LEFT JOIN bus_order o on o.CLASSIFY_ID=f.CLASSIFY_ID WHERE f.PARENT_ID=-1 AND DATE_FORMAT( o.CREATTIME, '%Y-%m-%d') BETWEEN ? AND ? group by f.name 
+2020-10-25 14:55:18.726 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.m.d.bus.OrderMapper.classifyStatistics - ==> Parameters: 2020-10-10(String), 2020-10-25(String)
+2020-10-25 14:55:18.728 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.m.d.bus.OrderMapper.classifyStatistics - <==      Total: 3
+2020-10-25 14:55:18.732 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.m.d.bus.OrderMapper.classifyStatistics - ==>  Preparing: SELECT f.name,count(1) as value FROM bus_classify f LEFT JOIN bus_order o on o.CLASSIFY_ID=f.CLASSIFY_ID WHERE f.PARENT_ID=-1 group by f.name 
+2020-10-25 14:55:18.733 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.m.d.bus.OrderMapper.classifyStatistics - ==> Parameters: 
+2020-10-25 14:55:18.734 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.m.d.bus.OrderMapper.classifyStatistics - <==      Total: 3
+2020-10-25 14:55:18.735 [http-nio-192.168.0.9-8081-exec-1] DEBUG c.z.mapper.datasource.system.PhotoMapper.findById - <==      Total: 1
+2020-10-25 14:55:18.743 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - ==>  Preparing: select count(0) from (select f.USER_ID, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.ADDRESS_ID, f.CLASSIFY_ID, f.TIMEMANAGE_ID, f.ESTIMATE, f.DESCR, f.STATUS, f.CODE, f.TRANSACTION_NUMBER, f.DISTRIBUTION_USER_ID, f.DISTRIBUTION_TIME, f.DISTRIBUTION_DESCR, f.IS_COUPON, f.IMG_URLS, f.ORDER_ID, a.USER_NAME, a.ADDRESS_NAME, a.ADDRESS, a.CAR_NUM, a.ADDRESS_PHONE, a.DISTRIBUTION_USER_NAME, a.CLASSIFY_NAME, a.CLASSIFY_CHILD_NAME, f.TIMEQUANTUM, f.PRICE, f.PICKUP_IMG_URLS, f.RETURN_IMG_URLS, f.CHARGEBACK_TIME, f.PROCESSING_TIME, f.COMPLETION_TIME, f.CLASSIFY_CHILD_ID, f.CHARGEBACK_DESCR, f.CHARGEBACK_NUMBER from BUS_ORDER f left join BUS_ORDER_DETAILS a on a.ORDER_ID=f.ORDER_ID and a.ISDELETE = '0' where f.ISDELETE = '0' order by f.CREATTIME desc) tmp_count 
+2020-10-25 14:55:18.744 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - ==> Parameters: 
+2020-10-25 14:55:18.746 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - ==>  Preparing: select f.USER_ID, f.ISDELETE, f.CREATOR, f.CREATTIME, f.OPERATOR, f.OPERATTIME, f.ADDRESS_ID, f.CLASSIFY_ID, f.TIMEMANAGE_ID, f.ESTIMATE, f.DESCR, f.STATUS, f.CODE, f.TRANSACTION_NUMBER, f.DISTRIBUTION_USER_ID, f.DISTRIBUTION_TIME, f.DISTRIBUTION_DESCR, f.IS_COUPON, f.IMG_URLS, f.ORDER_ID, a.USER_NAME, a.ADDRESS_NAME, a.ADDRESS, a.CAR_NUM, a.ADDRESS_PHONE, a.DISTRIBUTION_USER_NAME, a.CLASSIFY_NAME, a.CLASSIFY_CHILD_NAME, f.TIMEQUANTUM, f.PRICE, f.PICKUP_IMG_URLS, f.RETURN_IMG_URLS, f.CHARGEBACK_TIME, f.PROCESSING_TIME, f.COMPLETION_TIME, f.CLASSIFY_CHILD_ID, f.CHARGEBACK_DESCR, f.CHARGEBACK_NUMBER from BUS_ORDER f left join BUS_ORDER_DETAILS a on a.ORDER_ID=f.ORDER_ID and a.ISDELETE = '0' where f.ISDELETE = '0' order by f.CREATTIME desc limit 0,10 
+2020-10-25 14:55:18.747 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - ==> Parameters: 
+2020-10-25 14:55:18.751 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.mapper.datasource.bus.OrderMapper.datalistPage - <==      Total: 10
+2020-10-25 14:55:18.754 [http-nio-192.168.0.9-8081-exec-1] DEBUG c.z.m.datasource.system.FhsmsMapper.findFhsmsCount - ==>  Preparing: select count(FHSMS_ID) fhsmsCount from SYS_FHSMS where STATUS = '2' and TYPE = '1' and FROM_USERNAME = ? 
+2020-10-25 14:55:18.754 [http-nio-192.168.0.9-8081-exec-1] DEBUG c.z.m.datasource.system.FhsmsMapper.findFhsmsCount - ==> Parameters: admin(String)
+2020-10-25 14:55:18.756 [http-nio-192.168.0.9-8081-exec-1] DEBUG c.z.m.datasource.system.FhsmsMapper.findFhsmsCount - <==      Total: 1
+2020-10-25 14:55:18.763 [http-nio-192.168.0.9-8081-exec-1] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==>  Preparing: select USER_ID, USERNAME, PASSWORD, NAME, ROLE_ID, LAST_LOGIN, IP, STATUS, BZ, SKIN, EMAIL, NUMBER, PHONE, ROLE_IDS, DEPARTMENT_ID, OPENID, FUN_IDS from SYS_USER where USERNAME = ? 
+2020-10-25 14:55:18.763 [http-nio-192.168.0.9-8081-exec-1] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - ==> Parameters: admin(String)
+2020-10-25 14:55:18.766 [http-nio-192.168.0.9-8081-exec-1] DEBUG c.z.m.datasource.system.UsersMapper.findByUsername - <==      Total: 1
+2020-10-25 14:55:18.772 [http-nio-192.168.0.9-8081-exec-1] DEBUG c.z.m.d.s.RoleMapper.listAllRolesByArryROLE_ID - ==>  Preparing: select RNUMBER from SYS_ROLE where ROLE_ID in ( ? ) 
+2020-10-25 14:55:18.772 [http-nio-192.168.0.9-8081-exec-1] DEBUG c.z.m.d.s.RoleMapper.listAllRolesByArryROLE_ID - ==> Parameters: 1(String)
+2020-10-25 14:55:18.773 [http-nio-192.168.0.9-8081-exec-1] DEBUG c.z.m.d.s.RoleMapper.listAllRolesByArryROLE_ID - <==      Total: 1
+2020-10-25 14:55:44.548 [http-nio-192.168.0.9-8081-exec-3] DEBUG c.z.m.d.tools.CreateCodeMapper.datalistPage - ==>  Preparing: select count(0) from (select PACKAGENAME, OBJECTNAME, TABLENAME, FIELDLIST, CREATETIME, TITLE, CREATECODE_ID, FHTYPE from SYS_CREATECODE where 1=1 order by CREATETIME desc) tmp_count 
+2020-10-25 14:55:44.548 [http-nio-192.168.0.9-8081-exec-3] DEBUG c.z.m.d.tools.CreateCodeMapper.datalistPage - ==> Parameters: 
+2020-10-25 14:55:44.553 [http-nio-192.168.0.9-8081-exec-3] DEBUG c.z.m.d.tools.CreateCodeMapper.datalistPage - ==>  Preparing: select PACKAGENAME, OBJECTNAME, TABLENAME, FIELDLIST, CREATETIME, TITLE, CREATECODE_ID, FHTYPE from SYS_CREATECODE where 1=1 order by CREATETIME desc limit 0,10 
+2020-10-25 14:55:44.553 [http-nio-192.168.0.9-8081-exec-3] DEBUG c.z.m.d.tools.CreateCodeMapper.datalistPage - ==> Parameters: 
+2020-10-25 14:55:44.558 [http-nio-192.168.0.9-8081-exec-3] DEBUG c.z.m.d.tools.CreateCodeMapper.datalistPage - <==      Total: 10
+2020-10-25 14:55:47.095 [http-nio-192.168.0.9-8081-exec-5] DEBUG c.z.m.datasource.tools.CreateCodeMapper.listFa - ==>  Preparing: select PACKAGENAME, OBJECTNAME, TABLENAME, FIELDLIST, CREATETIME, TITLE, CREATECODE_ID, FHTYPE from SYS_CREATECODE where FHTYPE = 'fathertable' 
+2020-10-25 14:55:47.096 [http-nio-192.168.0.9-8081-exec-5] DEBUG c.z.m.datasource.tools.CreateCodeMapper.listFa - ==> Parameters: 
+2020-10-25 14:55:47.104 [http-nio-192.168.0.9-8081-exec-5] DEBUG c.z.m.datasource.tools.CreateCodeMapper.listFa - <==      Total: 0
+2020-10-25 15:00:00.008 [scheduling-1] DEBUG c.z.m.datasource.bus.OrderMapper.scheduledTask - ==>  Preparing: update BUS_ORDER t set t.STATUS=41, t.CHARGEBACK_DESCR='超时未付款，系统自动取消' where t.CREATTIME <= CONCAT(date_format(DATE_SUB(NOW(), INTERVAL 5 MINUTE),'%Y%m%d%H%i%S'),'000') and t.STATUS=-1 
+2020-10-25 15:00:00.008 [scheduling-1] DEBUG c.z.m.datasource.bus.OrderMapper.scheduledTask - ==> Parameters: 
+2020-10-25 15:00:00.011 [scheduling-1] DEBUG c.z.m.datasource.bus.OrderMapper.scheduledTask - <==    Updates: 0
+2020-10-25 15:02:38.268 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.z.mapper.datasource.tools.CreateCodeMapper.save - ==>  Preparing: insert into SYS_CREATECODE ( PACKAGENAME, OBJECTNAME, TABLENAME, FIELDLIST, CREATETIME, TITLE, CREATECODE_ID, FHTYPE ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2020-10-25 15:02:38.268 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.z.mapper.datasource.tools.CreateCodeMapper.save - ==> Parameters: bus(String), GoodsInfo(String), bus_,fh,GOODSINFO(String), GOODSNAME,fh,String,fh,商品名称,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790GOODSTYPE,fh,String,fh,商品类型,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790GOODSAMOUNT,fh,String,fh,商品金额,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790AMOUNTACTIVITY,fh,String,fh,活动金额,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790GOODSCONTENT,fh,String,fh,内容,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790GOODSIMG,fh,String,fh,商品图片,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790AFTERSERVICE,fh,String,fh,售后服务,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790SERVICEGUARANTEE,fh,String,fh,服务保障,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790HOTLINE,fh,String,fh,服务热线,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790ORDERINGINFORMATION,fh,String,fh,订购须知,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790GOODSDETAILS,fh,String,fh,商品详情,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790ISUPPERSHELF,fh,String,fh,是否上架1，是2，否,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790GOODSSYNOPSIS,fh,String,fh,商品简介,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790QUANTITYSOLD,fh,String,fh,已售数量,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790ISSHOW,fh,String,fh,是否首页展示,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790SERVICESTATEMENT,fh,String,fh,服务声明,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790INVENTORYQUANTITY,fh,String,fh,库存数量,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790ISDELETE,fh,String,fh,是否删除,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790OPUSER,fh,String,fh,操作人,fh,是,fh,无,fh,255,fh,0,fh,nullQ313596790OPDATE,fh,Date,fh,操作日期,fh,是,fh,无,fh,32,fh,0,fh,nullQ313596790(String), 2020-10-25 15:02:38(String), 商品信息(String), 747ca0c47aba4872877e3aed719785c3(String), single(String)
+2020-10-25 15:02:38.272 [http-nio-192.168.0.9-8081-exec-8] DEBUG c.z.mapper.datasource.tools.CreateCodeMapper.save - <==    Updates: 1
+2020-10-25 15:02:49.263 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.m.d.tools.CreateCodeMapper.datalistPage - ==>  Preparing: select count(0) from (select PACKAGENAME, OBJECTNAME, TABLENAME, FIELDLIST, CREATETIME, TITLE, CREATECODE_ID, FHTYPE from SYS_CREATECODE where 1=1 order by CREATETIME desc) tmp_count 
+2020-10-25 15:02:49.263 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.m.d.tools.CreateCodeMapper.datalistPage - ==> Parameters: 
+2020-10-25 15:02:49.264 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.m.d.tools.CreateCodeMapper.datalistPage - ==>  Preparing: select PACKAGENAME, OBJECTNAME, TABLENAME, FIELDLIST, CREATETIME, TITLE, CREATECODE_ID, FHTYPE from SYS_CREATECODE where 1=1 order by CREATETIME desc limit 0,10 
+2020-10-25 15:02:49.264 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.m.d.tools.CreateCodeMapper.datalistPage - ==> Parameters: 
+2020-10-25 15:02:49.268 [http-nio-192.168.0.9-8081-exec-10] DEBUG c.z.m.d.tools.CreateCodeMapper.datalistPage - <==      Total: 10

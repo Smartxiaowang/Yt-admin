@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>隐患详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/weui.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/weuix.css" />
+
+    <!-- vue -->
+    <script src="../../../bi/js/vue.js"></script>
+    <!--全局配置-->
+    <script src="../../../config.js"></script>
+	</head>
+	<body style="background-color: #f1f1f1;">
+		<div id="app" class="dy-card">
+			<div class="base-cells">
+			    <div class="base-cell">
+			        <div class="base-cell__bd">
+			            <p>隐患来源</p>
+			        </div>
+			        <div class="base-cell__ft">
+						<template v-if="pd.SOURCE=='1'">
+							隐患快报
+						</template>
+						<template v-else-if="pd.SOURCE=='2'">
+							隐患排查
+						</template>
+						<template v-else-if="pd.SOURCE=='3'">
+							隐患排查
+						</template>
+			        </div>
+			    </div>
+				<div  v-if="pd.SOURCE=='2'" class="base-cell">
+				    <div class="base-cell__bd">
+				        <p>风险点（单元）</p>
+				    </div>
+				    <div class="base-cell__ft">{{pd.RISK_UNIT}}</div>
+				</div>
+				<div v-if="pd.SOURCE=='2'" class="base-cell">
+				    <div class="base-cell__bd">
+				        <p>辨识部位</p>
+				    </div>
+				    <div class="base-cell__ft">{{pd.IDENTIFICATION}}</div>
+				</div>
+				<div class="base-cell-sp" v-if="pd.SOURCE=='2'">
+				    <div class="base-cell__bd">
+				        <p>存在风险</p>
+				    </div>
+				    <div class="base-cell__ft">{{pd.RISK_DESCR}}</div>
+				</div>
+				<div v-if="pd.SOURCE=='2'" class="base-cell">
+				    <div class="base-cell__bd">
+				        <p>风险分级</p>
+				    </div>
+				    <div class="base-cell__ft">{{pd.LEVEL}}</div>
+				</div>
+				<div class="base-cell-sp" v-if="pd.SOURCE=='2'">
+				    <div class="base-cell__bd">
+				        <p>检查内容</p>
+				    </div>
+				    <div class="base-cell__ft">{{pd.CHECK_CONTENT}}</div>
+				</div>
+				<div class="base-cell">
+				    <div class="base-cell__bd">
+				        <p>隐患级别</p>
+				    </div>
+				    <div class="base-cell__ft">{{pd.HIDDENLEVELNAME}}</div>
+				</div>
+				<div class="base-cell">
+				    <div class="base-cell__bd">
+				        <p>隐患状态</p>
+				    </div>
+				    <div class="base-cell__ft">
+						<template v-if="pd.STATE=='1'">
+							未整改
+						</template>
+						<template v-else-if="pd.STATE=='2'">
+							已整改
+						</template>
+						<template v-else-if="pd.STATE=='3'">
+							已验收
+						</template>
+					</div>
+				</div>
+				<div class="base-cell-sp">
+				    <div class="base-cell__bd">
+				        <p>隐患描述</p>
+				    </div>
+				    <div class="base-cell__ft">{{pd.HIDDENDESCR}}</div>
+				</div>
+				<div class="base-cell">
+				    <div class="base-cell__bd">
+				        <p>隐患部位</p>
+				    </div>
+				    <div class="base-cell__ft">{{pd.HIDDENPART}}</div>
+				</div>
+				<div class="base-cell">
+				    <div class="base-cell__bd">
+				        <p>隐患发现部门</p>
+				    </div>
+				    <div class="base-cell__ft">{{pd.HIDDENFINDDEPTNAME}}</div>
+				</div>
+				<div class="base-cell">
+				    <div class="base-cell__bd">
+				        <p>发现人</p>
+				    </div>
+				    <div class="base-cell__ft">{{pd.CREATORNAME}}</div>
+				</div>
+				<div class="base-cell">
+				    <div class="base-cell__bd">
+				        <p>发现时间</p>
+				    </div>
+				    <div class="base-cell__ft">{{pd.CREATTIME}}</div>
+				</div>
+				<div class="base-cell">
+				    <div class="base-cell__bd">
+				        <p>隐患处置</p>
+				    </div>
+				    <div class="base-cell__ft">说明文字
+				    	<template v-if="pd.RECTIFICATIONTYPE=='1'">
+							立即整改
+						</template>
+						<template v-else-if="pd.RECTIFICATIONTYPE=='2'">
+							限期整改
+						</template>
+				    </div>
+				</div>
+				<div v-if="pd.RECTIFICATIONTYPE=='2'" class="base-cell">
+				    <div class="base-cell__bd">
+				        <p>整改期限</p>
+				    </div>
+				    <div class="base-cell__ft">{{pd.RECTIFICATIONDEADLINE}}</div>
+				</div>
+				<div class="base-cell-sp">
+				    <div class="base-cell__bd">
+				        <p>隐患图片</p>
+				    </div>
+				    <div class="base-cell__img">
+					    <template v-for="(data,index) in hImgs">
+							<img :src="data" >
+					    </template>
+					</div>
+				</div>
+				<div v-show="pd.STATE>=2">
+					<div class="base-cell-sp">
+					    <div class="base-cell__bd">
+					        <p>整改描述</p>
+					    </div>
+					    <div class="base-cell__ft">{{pd.RECTIFYDESCR}}</div>
+					</div>
+					<div class="base-cell">
+					    <div class="base-cell__bd">
+					        <p>整改部门</p>
+					    </div>
+					    <div class="base-cell__ft">{{pd.RECTIFICATIONDEPTNAME}}</div>
+					</div>
+					<div class="base-cell">
+					    <div class="base-cell__bd">
+					        <p>整改人</p>
+					    </div>
+					    <div class="base-cell__ft">{{pd.RECTIFICATIONORNAME}}</div>
+					</div>
+					<div class="base-cell">
+					    <div class="base-cell__bd">
+					        <p>整改时间</p>
+					    </div>
+					    <div class="base-cell__ft">{{pd.RECTIFICATIONTIME}}</div>
+					</div>
+					<div class="base-cell-sp">
+					    <div class="base-cell__bd">
+					        <p>整改后图片</p>
+					    </div>
+					    <div class="base-cell__img">
+						    <template v-for="(data,index) in rImgs">
+								<img :src="data" >
+						    </template>
+						</div>
+					</div>
+					<div class="base-cell">
+					    <div class="base-cell__bd">
+					        <p>整改方案</p>
+					    </div>
+					    <div class="base-cell__ft">
+							<template v-if="pd.HAVESCHEME==0">
+								无
+							</template>
+							<template v-else-if="pd.HAVESCHEME==1">
+								有
+							</template>
+							<template v-else>
+							</template>
+						</div>
+					</div>
+					<div class="base-cell" v-if="hs && pd.HAVESCHEME==1">
+					    <div class="base-cell__bd">
+					        <p>排查日期</p>
+					    </div>
+					    <div class="base-cell__ft">{{hs.SCREENINGDATE}}</div>
+					</div>
+					<div class="base-cell" v-if="hs && pd.HAVESCHEME==1">
+					    <div class="base-cell__bd">
+					        <p>隐患清单</p>
+					    </div>
+					    <div class="base-cell__ft">{{hs.LISTNAME}}</div>
+					</div>
+					<div class="base-cell" v-if="hs && pd.HAVESCHEME==1">
+					    <div class="base-cell__bd">
+					        <p>治理标准要求</p>
+					    </div>
+					    <div class="base-cell__ft">{{hs.GOVERNSTANDARDS}}</div>
+					</div>
+					<div class="base-cell" v-if="hs && pd.HAVESCHEME==1">
+					    <div class="base-cell__bd">
+					        <p>治理方法</p>
+					    </div>
+					    <div class="base-cell__ft">{{hs.GOVERNMETHOD}}</div>
+					</div>
+					<div class="base-cell" v-if="hs && pd.HAVESCHEME==1">
+					    <div class="base-cell__bd">
+					        <p>经费和物资的落实</p>
+					    </div>
+					    <div class="base-cell__ft">{{hs.EXPENDITURE}}</div>
+					</div>
+					<div class="base-cell" v-if="hs && pd.HAVESCHEME==1">
+					    <div class="base-cell__bd">
+					        <p>负责治理人员</p>
+					    </div>
+					    <div class="base-cell__ft">{{hs.PRINCIPAL}}</div>
+					</div>
+					<div class="base-cell" v-if="hs && pd.HAVESCHEME==1">
+					    <div class="base-cell__bd">
+					        <p>工时安排</p>
+					    </div>
+					    <div class="base-cell__ft">{{hs.PROGRAMMING}}</div>
+					</div>
+					<div class="base-cell" v-if="hs && pd.HAVESCHEME==1">
+					    <div class="base-cell__bd">
+					        <p>时限要求</p>
+					    </div>
+					    <div class="base-cell__ft">{{hs.TIMELIMITFOR}}</div>
+					</div>
+					<div class="base-cell" v-if="hs && pd.HAVESCHEME==1">
+					    <div class="base-cell__bd">
+					        <p>工作要求</p>
+					    </div>
+					    <div class="base-cell__ft">{{hs.JOBREQUIREMENT}}</div>
+					</div>
+					<div class="base-cell" v-if="hs && pd.HAVESCHEME==1">
+					    <div class="base-cell__bd">
+					        <p>其他事项</p>
+					    </div>
+					    <div class="base-cell__ft">{{hs.OTHERBUSINESS}}</div>
+					</div>
+					<div class="base-cell-sp" v-if="hs && pd.HAVESCHEME==1">
+					    <div class="base-cell__bd">
+					        <p>方案图片</p>
+					    </div>
+					    <div class="base-cell__img">
+						    <template v-for="(data,index) in sImgs">
+								<img :src="data" >
+						    </template>
+						</div>
+					</div>
+
+				</div>
+				<div v-show="pd.STATE>=4">
+					<template v-for="(data,index) in checkList">
+						<div class="base-cell-sp">
+						    <div class="base-cell__bd">
+						        <p>验收描述</p>
+						    </div>
+						    <div class="base-cell__ft">{{data.CHECKDESCR}}</div>
+						</div>
+						<div class="base-cell">
+						    <div class="base-cell__bd">
+						        <p>是否合格</p>
+						    </div>
+						    <div class="base-cell__ft">
+								<template v-if="data.STATUS=='1'">
+									是
+								</template>
+								<template v-else-if="data.STATUS=='0'">
+									否
+								</template>
+							</div>
+						</div>
+						<div class="base-cell">
+						    <div class="base-cell__bd">
+						        <p>验收部门</p>
+						    </div>
+						    <div class="base-cell__ft">{{data.CHECKDEPTNAME}}</div>
+						</div>
+						<div class="base-cell">
+						    <div class="base-cell__bd">
+						        <p>验收人</p>
+						    </div>
+						    <div class="base-cell__ft">{{data.CHECKORNAME}}</div>
+						</div>
+						<div class="base-cell">
+						    <div class="base-cell__bd">
+						        <p>验收时间</p>
+						    </div>
+						    <div class="base-cell__ft">{{data.CHECK_TIME}}</div>
+						</div>
+						<div class="base-cell-sp">
+						    <div class="base-cell__bd">
+						        <p>验收图片</p>
+						    </div>
+						    <div class="base-cell__img">
+							    <template v-for="(data1,index1) in data.cImgs">
+									<img :src="data1.FILEPATH" >
+							    </template>
+							</div>
+						</div>
+					</template>
+
+				</div>
+			</div>
+		</div>
+		<div style="padding: 0 20px;">
+			<a href="javascript:;" class="weui-btn bg-blue" style="font-size: 14px;line-height:2.6;" onclick="back()">返回列表</a>
+		</div>
+    <script type="text/javascript" src="../../assets/js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="../../../bi/js/pre-loader.js"></script>
+    <script src="../../../bi/js/sweetalert.min.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data:{
+					HIDDEN_ID : '',
+					pd: [],						//存放字段参数
+					hs: [],
+					msg:'add',
+					pageType:'',
+					httpurl:'',
+					hImgs:[],
+					rImgs:[],
+					cImgs:[],
+					sImgs:[],
+					checkList:[]
+				},
+				methods: {
+					//初始执行
+					init() {
+						this.HIDDEN_ID = this.getUrlKey('FID');	//当接收过来的FID不为null时,表示此页面是修改进来的
+						this.getData();
+					},
+				  	//根据主键ID获取数据
+			    	getData: function(){
+			    		//发送 post 请求
+			            $.ajax({
+			            	xhrFields: {
+			                    withCredentials: true
+			                },
+							type: "POST",
+							url: config.httpurl+'/app/hidden/goEditWeui',
+					    	data: {HIDDEN_ID:this.HIDDEN_ID,tm:new Date().getTime()},
+							dataType:"json",
+							success: function(data){
+			                     if("success" == data.result){
+			                     	vm.pd = data.pd;							//参数map
+			                     	vm.hs = data.hs;							//参数map
+			                     	vm.checkList = data.checkList;
+									$("#CREATTIME").val(data.pd.CREATTIME);
+									$("#RECTIFICATIONTIME").val(data.pd.RECTIFICATIONTIME);
+									$("#CHECKTIME").val(data.pd.CHECKTIME);
+									$("#RECTIFICATIONDEADLINE").val(data.pd.RECTIFICATIONDEADLINE);
+			                     	console.info(document.getElementById("rImgs"))
+									if(undefined != data.hImgs && data.hImgs != null && data.hImgs.length > 0){
+										 var hImgs =  data.hImgs;
+										 for(var i=0;i<hImgs.length;i++){
+											 vm.hImgs.push(fileUrl +hImgs[i].FILEPATH);
+										 }
+									}
+									if(undefined != data.rImgs && data.rImgs != null && data.rImgs.length > 0){
+										 var rImgs =  data.rImgs;
+										 for(var i=0;i<rImgs.length;i++){
+											 vm.rImgs.push(fileUrl +rImgs[i].FILEPATH);
+										 }
+									}
+									/* if(undefined != data.cImgs && data.cImgs != null && data.cImgs.length > 0){
+										 var cImgs =  data.cImgs;
+										 for(var i=0;i<cImgs.length;i++){
+											 vm.cImgs.push(fileUrl +cImgs[i].FILEPATH);
+										 }
+									} */
+									if(undefined != data.sImgs && data.sImgs != null && data.sImgs.length > 0){
+										 var sImgs =  data.sImgs;
+										 for(var i=0;i<sImgs.length;i++){
+											 vm.sImgs.push(fileUrl +sImgs[i].FILEPATH);
+										 }
+									}
+
+									if(undefined != data.checkList && data.checkList != null && data.checkList.length > 0){
+										for(var i = 0;i<data.checkList.length;i++){
+											if(undefined != data.checkList[i].cImgs && data.checkList[i].cImgs != null && data.checkList[i].cImgs.length > 0){
+												for(var j = 0;j<data.checkList[i].cImgs.length;j++){
+					 								data.checkList[i].cImgs[j].FILEPATH = fileUrl +data.checkList[i].cImgs[j].FILEPATH;
+												}
+											}
+										}
+									}
+								/* 	//无论点击哪一个img弹出层都会展示相应的图片。
+									 $(".img-select").find("img").on("click", function () {
+										 $(this).each(function () {
+											 var $this = $(this);
+											 var $img = $this.attr("src");//获取当前点击img的src的值
+											 $("#img-box").find("img").attr("src", $img);//将获取的当前点击img的src赋值到弹出层的图片的src
+											 $("#dialog-bg").show();//弹出层显示
+										 });
+									 });
+									 //弹出层隐藏
+									 $("#dialog-bg").on("click", function () {
+										 $(this).hide();//
+									 }); */
+			                     }else if ("exception" == data.result){
+			                     	showException("隐患",data.exception);	//显示异常
+			                     	$("#showform").show();
+			                 		$("#jiazai").hide();
+			                     }
+			                  }
+						}).done().fail(function(){
+			                  swal("登录失效!", "请求服务器无响应，稍后再试", "warning");
+			                  $("#showform").show();
+			          		  $("#jiazai").hide();
+			               });
+			    	},
+					//根据url参数名称获取参数值
+					getUrlKey: function (name) {
+						return decodeURIComponent(
+								(new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) || [, ""])[1].replace(/\+/g, '%20')) || null;
+					}
+				},
+				mounted(){
+					this.init();
+				}
+			})
+
+			function back(e) {
+				window.history.go(-1);
+			}
+		</script>
+	</body>
+</html>

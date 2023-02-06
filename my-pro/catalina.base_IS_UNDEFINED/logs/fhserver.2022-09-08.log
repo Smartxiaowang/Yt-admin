@@ -1,0 +1,6 @@
+2022-09-08 08:58:44.569 [http-nio-8081-exec-1] DEBUG c.z.m.d.system.ProjectDetailsMapper.findUpdate - ==>  Preparing: select f.* from PROJECT_DETAILS f left join PRO_MANAGER p on p.PROJECT_ID = f.PROJECT_ID where p.CODE = ? and f.TYPE = ? and date_format(now(),'%Y-%m-%d %H:%i:%S') between f.PLAN_START_TIME and f.PLAN_END_TIME 
+2022-09-08 08:58:44.585 [http-nio-8081-exec-1] DEBUG c.z.m.d.system.ProjectDetailsMapper.findUpdate - ==> Parameters: cloud(String), WEB(String)
+2022-09-08 08:58:44.605 [http-nio-8081-exec-1] DEBUG c.z.m.d.system.ProjectDetailsMapper.findUpdate - <==      Total: 1
+2022-09-08 08:59:37.563 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.ProjectDetailsMapper.findUpdate - ==>  Preparing: select f.* from PROJECT_DETAILS f left join PRO_MANAGER p on p.PROJECT_ID = f.PROJECT_ID where p.CODE = ? and f.TYPE = ? and date_format(now(),'%Y-%m-%d %H:%i:%S') between f.PLAN_START_TIME and f.PLAN_END_TIME 
+2022-09-08 08:59:37.564 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.ProjectDetailsMapper.findUpdate - ==> Parameters: cloud(String), WEB(String)
+2022-09-08 08:59:37.567 [http-nio-8081-exec-3] DEBUG c.z.m.d.system.ProjectDetailsMapper.findUpdate - <==      Total: 1

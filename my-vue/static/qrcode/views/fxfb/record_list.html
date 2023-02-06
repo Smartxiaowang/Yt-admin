@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>风险分布</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/weui.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/weuix.css" />
+
+    <!-- vue -->
+    <script src="../../../bi/js/vue.js"></script>
+    <!--全局配置-->
+    <script src="../../../config.js"></script>
+	</head>
+	<body ontouchstart >
+		<div id="app">
+			<div class="page-bg">
+				<div class="weui-search-bar">
+					<input type="search" v-model="KEYWORDS" class="search-input" id='search' placeholder='请输入关键字...' />
+					<button class="weui-btn weui-btn_primary" v-on:click="getData">
+						<i class="icon icon-4" style="margin-right: 5px;font-size: 12px;"></i>搜索</button>
+				</div>
+			</div>
+			<div class="weui-news">
+				<ul class="weui-news-list">
+					<template v-for="(data,index) in list">
+						<li class="weui-news-item" v-on:click="goToDetail(data.CHECKRECORD_ID)">
+							<div class="weui-news-inner">
+								<div class="weui-news-inners">
+									<div class="weui-news-text">
+										<div class="weui-news-title">检查清单：{{data.LISTMANAGERNAME}}</div>
+									</div>
+									<div class="wui-news-info">
+										<div class="wui-subinfo">检查时间：{{data.CHECK_TIME}}</div>
+										<div class="wui-subinfo">检查人：{{data.USERNAME}}</div>
+									</div>
+								</div>
+								<div class="weui-cell__ft"></div>
+							</div>
+						</li>
+					</template>
+<!--					<li class="weui-news-item">-->
+<!--						<div class="weui-news-inner">-->
+<!--							<div class="weui-news-inners">-->
+<!--								<div class="weui-news-text">-->
+<!--									<div class="weui-news-title">事故类型：用以帮助开发</div>-->
+<!--									<div class="weui-tag bg-orange light">一般风险/C级</div>-->
+<!--								</div>-->
+<!--								<div class="wui-news-info">-->
+<!--									<div class="wui-subinfo">风险源：部位A</div>-->
+<!--									<div class="wui-subinfo">管控部门/责任人：</div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="weui-cell__ft"></div>-->
+<!--						</div>-->
+<!--					</li>-->
+				</ul>
+			</div>
+		</div>
+		<div style="padding: 0 20px;margin-top:20px">
+			<a href="javascript:;" class="weui-btn bg-blue" style="font-size: 14px;line-height:2.6;" onclick="back()">返回列表</a>
+		</div>
+    <script type="text/javascript" src="../../assets/js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="../../../bi/js/pre-loader.js"></script>
+    <script src="../../../bi/js/sweetalert.min.js"></script>
+		<script type="text/javascript">
+
+			var vm = new Vue({
+				el: '#app',
+
+				data:{
+					list:[],//返回数据
+					page:1,//分页参数--页数
+					rows:1000,//分页参数--每页数据条数
+					totalCount:0,//分页参数--初始化页数
+					isEnd:false,//防止多次刷新
+					totalPage:0,//分页参数--分页数量
+					KEYWORDS : "",
+					loading:false,	//加载状态
+					IDENTIFICATIONPARTS_ID:"",
+				},
+
+				methods: {
+					//初始执行
+					init() {
+						var FID = this.getUrlKey('FID');	//当接收过来的FID不为null时,表示此页面是修改进来的
+						this.IDENTIFICATIONPARTS_ID = FID;
+						//复选框控制全选,全不选
+						$('#zcheckbox').click(function(){
+							if($(this).is(':checked')){
+								$("input[name='ids']").click();
+							}else{
+								$("input[name='ids']").attr("checked", false);
+							}
+						});
+						this.getData();
+					},
+					getData: function(){
+						var _this = this;
+						_this.loading = true;
+						$.ajax({
+							xhrFields: {
+								withCredentials: true
+							},
+							type: "POST",
+							url: config.httpurl +'app/checkrecord/recordByIde',
+							dataType: 'json',
+							data: {
+								IDENTIFICATIONPARTS_ID:_this.IDENTIFICATIONPARTS_ID,
+								tm:new Date().getTime(),
+								KEYWORDS : _this.KEYWORDS, //关键字模糊查询
+							},
+							success: function(data){
+								vm.loading = false;
+								if("success" == data.result){
+									vm.list = data.varList;
+								}
+							}
+						})
+					},
+					goToDetail: function (e) {
+						window.location.href = './part-list.html?FID='+e+'&IDENTIFICATION_ID='+this.IDENTIFICATIONPARTS_ID;
+					},
+					//根据url参数名称获取参数值
+					getUrlKey: function (name) {
+						return decodeURIComponent(
+								(new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) || [, ""])[1].replace(/\+/g, '%20')) || null;
+					}
+				},
+				mounted(){
+					this.init();
+				}
+			})
+
+			function back(e) {
+				window.history.go(-1);
+			}
+		</script>
+	</body>
+</html>
+<style type="text/css">
+	.search-input {
+		padding-left: 10px;
+	}
+	.wui-news-info{
+		padding-bottom: 0.4rem;
+	}
+	.wui-subinfo{
+		font-size: 0.6rem;
+		color: #999;
+	}
+	.weui-search-bar .weui-btn{
+		text-align: center;width:110px;display: flex; align-items: center;
+		font-size: 0.65rem;
+		padding: 0rem 0.6rem;
+		line-height:2.26;
+	}
+</style>
