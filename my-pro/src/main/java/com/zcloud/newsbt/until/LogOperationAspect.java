@@ -19,10 +19,10 @@ import java.lang.reflect.Method;
  * @Version 1.0
  **/
 @Aspect
-@Component
+//@Component
 public class LogOperationAspect {
 
-    @Around("logPointCut()")
+   // @Around("logPointCut()")
     public Object around(ProceedingJoinPoint point) throws Throwable {
         long beginTime = System.currentTimeMillis();
         try {
