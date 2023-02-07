@@ -14,7 +14,7 @@ import org.springframework.scheduling.annotation.Scheduled;
  * 官网：www.qdkjchina.com
  */
 @SpringBootApplication//去除冲突 
-@MapperScan("com.zcloud.mapper")
+@MapperScan(value = {"com.zcloud.mapper","com.zcloud.newsbt"})
 @EnableCaching
 @EnableScheduling
 public class FHmainApplication {
@@ -22,7 +22,5 @@ public class FHmainApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FHmainApplication.class, args);
 	}
-
-
 
 }
