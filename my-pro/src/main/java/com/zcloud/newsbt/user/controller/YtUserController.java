@@ -5,11 +5,10 @@ import com.zcloud.newsbt.until.PageData;
 import com.zcloud.newsbt.until.Result;
 import com.zcloud.newsbt.user.entity.AppUserEntity;
 import com.zcloud.newsbt.user.service.YtUserService;
-import com.zcloud.newsbt.user.service.serviceImpl.YtUserServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 /**
  * @ClassName YtUserController
@@ -27,21 +26,29 @@ public class YtUserController {
     //系统用户
 
     @GetMapping("/getSysUserDataList")
-    @LogOperation("系统用户查询")
-    public Result<PageData> getSysUserDataList() {
-
-        return null;
+   // @LogOperation("系统用户查询")
+    public Result<PageData> getSysUserDataList(Map<String, Object> params) {
+        PageData<AppUserEntity> dataList = ytUserService.getSysUserDataList(params);
+        return new Result<PageData>().ok(dataList);
+    }
+    @GetMapping("/getSysUserById/{id}")
+    //@LogOperation("系统用户查询")
+    public Result<AppUserEntity> getSysUserById(@RequestParam Long id) {
+        return new Result<AppUserEntity>().ok(ytUserService.selectById(id));
     }
     @PutMapping("/updSysUserInfo")
     public Result updSysUserInfo(@RequestBody AppUserEntity appUserEntity) {
+        ytUserService.updSysUserInfo(appUserEntity);
         return new Result();
     }
     @PostMapping("/insertSysUserInfo")
     public Result insertSysUserInfo(@RequestBody AppUserEntity appUserEntity) {
+        ytUserService.insertSysUserInfo(appUserEntity);
         return new Result();
     }
     @DeleteMapping("/delSysUserByIds")
     public Result delSysUserByIds(@RequestBody String ids[]) {
+        ytUserService.delSysUserByIds(ids);
         return new Result();
     }
 

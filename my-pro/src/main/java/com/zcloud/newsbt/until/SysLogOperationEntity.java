@@ -1,5 +1,10 @@
 package com.zcloud.newsbt.until;
 
+import com.baomidou.mybatisplus.annotation.*;
+
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * @ClassName Log
  * @Description TODO
@@ -7,10 +12,44 @@ package com.zcloud.newsbt.until;
  * @Date 17:25 2023/2/6/006
  * @Version 1.0
  **/
-//@TableName("sys_log_operation")
+@TableName("sys_log_operation")
 //public class SysLogOperationEntity extends BaseEntity {
-public class SysLogOperationEntity {
+public class SysLogOperationEntity implements Serializable {
     private static final long serialVersionUID = 1L;
+
+    @TableId(type = IdType.AUTO)
+    private Long id;
+    @TableField(fill = FieldFill.INSERT)
+    private Long  creator;
+    /**
+     * 创建时间
+     */
+    @TableField(fill = FieldFill.INSERT)
+    private Date createDate;
+
+    public Long getCreator() {
+        return creator;
+    }
+
+    public void setCreator(Long creator) {
+        this.creator = creator;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     /**
      * 用户操作
